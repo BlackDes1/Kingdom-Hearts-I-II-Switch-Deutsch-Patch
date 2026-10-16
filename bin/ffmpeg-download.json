@@ -1,0 +1,11 @@
+{
+  "version": "9.0.2",
+  "url": "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip",
+  "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba",
+  "downloaded_at": "2026-10-16T12:16:20.894353+00:00",
+  "versions": {
+    "ffmpeg.exe": "ffmpeg version 9.0.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe.exe": "ffprobe version 9.0.2-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "license": "GPL-3.0-or-later"
+}

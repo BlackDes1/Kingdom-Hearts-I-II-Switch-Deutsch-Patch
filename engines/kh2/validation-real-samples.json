@@ -1,0 +1,2832 @@
+{
+  "native_sample_assets_rebuilt": 20,
+  "native_raw_assets_used": 13,
+  "partially_reconstructed_assets": 7,
+  "reconstruction_details": "Actual supplied original and changed HD bytes; generated sentinels for missing unrelated resources.",
+  "original_scd_pairs": 7,
+  "remastered_audio_pairs": 12,
+  "png_pairs": 2,
+  "streams_fully_decoded_with_ffmpeg": {
+    "native": 257,
+    "german": 258,
+    "converted": 123
+  },
+  "codec_conversions_verified": 123,
+  "channel_conversions_verified": 1,
+  "output_sha256_and_unmodified_resource_verification": true,
+  "source_archives_unchanged": true,
+  "hardware_tested": false,
+  "scd_checks": [
+    {
+      "asset": "obj/N_HB570_BTL.a.us",
+      "native_entries": 29,
+      "replacement_entries": 29,
+      "native_rates": [
+        47970,
+        47986,
+        47988,
+        47993,
+        47994,
+        47995,
+        47996,
+        48000,
+        48004,
+        48005,
+        48006,
+        48007,
+        48008,
+        48009,
+        48013,
+        48014,
+        48015,
+        48016,
+        48019,
+        48021
+      ],
+      "replacement_rates": [
+        47915,
+        47918,
+        47937,
+        47956,
+        47973,
+        47975,
+        47976,
+        47978,
+        47987,
+        47995,
+        48000,
+        48028,
+        48040,
+        48060
+      ],
+      "native_version": 4,
+      "replacement_version": 3,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 29,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 22,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 23,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 24,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 25,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 26,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 27,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 28,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ],
+      "channel_conversions": [],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 22,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 23,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 24,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 25,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 26,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 27,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 28,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ]
+    },
+    {
+      "asset": "bgm/music506.win32.scd",
+      "native_entries": 1,
+      "replacement_entries": 1,
+      "native_rates": [
+        48000
+      ],
+      "replacement_rates": [
+        44100
+      ],
+      "native_version": 3,
+      "replacement_version": 3,
+      "native_codecs": [
+        6
+      ],
+      "replacement_codecs": [
+        6
+      ],
+      "native_channels": [
+        2
+      ],
+      "replacement_channels": [
+        2
+      ],
+      "active_streams": 1,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "bgm/music507.win32.scd",
+      "native_entries": 1,
+      "replacement_entries": 1,
+      "native_rates": [
+        48000
+      ],
+      "replacement_rates": [
+        44100
+      ],
+      "native_version": 3,
+      "replacement_version": 3,
+      "native_codecs": [
+        6
+      ],
+      "replacement_codecs": [
+        6
+      ],
+      "native_channels": [
+        2
+      ],
+      "replacement_channels": [
+        2
+      ],
+      "active_streams": 1,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/B_AL020.a.us",
+      "native_entries": 15,
+      "replacement_entries": 15,
+      "native_rates": [
+        47989,
+        47994,
+        47995,
+        47996,
+        47998,
+        47999,
+        48000,
+        48001,
+        48002,
+        48005,
+        48008
+      ],
+      "replacement_rates": [
+        47964,
+        47966,
+        47979,
+        47980,
+        47982,
+        47996,
+        47997,
+        48002,
+        48006,
+        48014,
+        48027,
+        48039,
+        48041
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 15,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/B_CA010.a.us",
+      "native_entries": 11,
+      "replacement_entries": 11,
+      "native_rates": [
+        47988,
+        47993,
+        47995,
+        47996,
+        47999,
+        48000,
+        48001,
+        48009,
+        48010
+      ],
+      "replacement_rates": [
+        47966,
+        47981,
+        47994,
+        47996,
+        48001,
+        48005,
+        48016,
+        48026,
+        48035,
+        48036,
+        48043
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 11,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/B_CA020.a.us",
+      "native_entries": 2,
+      "replacement_entries": 2,
+      "native_rates": [
+        48000
+      ],
+      "replacement_rates": [
+        47987,
+        48000
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 2,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "voice/us/battle/tt0_roxas.win32.scd",
+      "native_entries": 35,
+      "replacement_entries": 35,
+      "native_rates": [
+        48000
+      ],
+      "replacement_rates": [
+        22050,
+        48000
+      ],
+      "native_version": 3,
+      "replacement_version": 3,
+      "native_codecs": [
+        6
+      ],
+      "replacement_codecs": [
+        6
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 35,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "voice/us/battle/tt0_sora.win32.scd",
+      "native_entries": 31,
+      "replacement_entries": 32,
+      "native_rates": [
+        48000
+      ],
+      "replacement_rates": [
+        20000,
+        22050
+      ],
+      "native_version": 3,
+      "replacement_version": 3,
+      "native_codecs": [
+        6
+      ],
+      "replacement_codecs": [
+        6
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 32,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/N_EX570_BTL.a.us",
+      "native_entries": 16,
+      "replacement_entries": 16,
+      "native_rates": [
+        47970,
+        47996,
+        47998,
+        48000,
+        48004,
+        48005,
+        48007,
+        48009,
+        48010,
+        48012,
+        48018,
+        48020,
+        48023,
+        48030
+      ],
+      "replacement_rates": [
+        47880,
+        47915,
+        47986,
+        47991,
+        47996,
+        48000,
+        48006,
+        48016,
+        48022,
+        48025,
+        48033,
+        48036,
+        48068,
+        48083,
+        48106
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 16,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/N_EX650_BTL1.a.us",
+      "native_entries": 6,
+      "replacement_entries": 6,
+      "native_rates": [
+        47996,
+        47997,
+        47999,
+        48000,
+        48001,
+        48003
+      ],
+      "replacement_rates": [
+        48000
+      ],
+      "native_version": 4,
+      "replacement_version": 3,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 6,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ],
+      "channel_conversions": [],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ]
+    },
+    {
+      "asset": "voice/us/event/hb70102xn.win32.scd",
+      "native_entries": 1,
+      "replacement_entries": 1,
+      "native_rates": [
+        47998
+      ],
+      "replacement_rates": [
+        48007
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 1,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "voice/us/event/hb70103dz.win32.scd",
+      "native_entries": 1,
+      "replacement_entries": 1,
+      "native_rates": [
+        47999
+      ],
+      "replacement_rates": [
+        48007
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 1,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/N_HB630.a.us",
+      "native_entries": 20,
+      "replacement_entries": 20,
+      "native_rates": [
+        47966,
+        47978,
+        47979,
+        47988,
+        47994,
+        47995,
+        47997,
+        47999,
+        48000,
+        48002,
+        48003,
+        48006,
+        48008,
+        48014
+      ],
+      "replacement_rates": [
+        47928,
+        47948,
+        47972,
+        47978,
+        47991,
+        47994,
+        47999,
+        48000,
+        48004,
+        48008,
+        48009,
+        48012,
+        48019,
+        48024,
+        48025
+      ],
+      "native_version": 4,
+      "replacement_version": 3,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 20,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ],
+      "channel_conversions": [],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ]
+    },
+    {
+      "asset": "obj/N_HE010_BTL.a.us",
+      "native_entries": 10,
+      "replacement_entries": 10,
+      "native_rates": [
+        47975,
+        47982,
+        47986,
+        47991,
+        47994,
+        47998,
+        48007,
+        48010,
+        48013,
+        48025
+      ],
+      "replacement_rates": [
+        47931,
+        47979,
+        47995,
+        48012,
+        48040,
+        48054,
+        48072,
+        48106,
+        48146
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 10,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "obj/N_HE010_BTL_CLSM.a.us",
+      "native_entries": 10,
+      "replacement_entries": 10,
+      "native_rates": [
+        47975,
+        47982,
+        47986,
+        47991,
+        47994,
+        47998,
+        48007,
+        48010,
+        48013,
+        48025
+      ],
+      "replacement_rates": [
+        47931,
+        47979,
+        47995,
+        48012,
+        48040,
+        48054,
+        48072,
+        48106,
+        48146
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 10,
+      "codec_conversions": [],
+      "channel_conversions": [],
+      "audio_conversions": []
+    },
+    {
+      "asset": "voice/us/event/lk107_skar.win32.scd",
+      "native_entries": 1,
+      "replacement_entries": 1,
+      "native_rates": [
+        48000
+      ],
+      "replacement_rates": [
+        48007
+      ],
+      "native_version": 4,
+      "replacement_version": 4,
+      "native_codecs": [
+        6
+      ],
+      "replacement_codecs": [
+        6
+      ],
+      "native_channels": [
+        4
+      ],
+      "replacement_channels": [
+        4
+      ],
+      "active_streams": 1,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 12,
+          "to_codec": 6,
+          "from_channels": 1,
+          "to_channels": 4,
+          "adpcm_block_size": null
+        }
+      ],
+      "channel_conversions": [
+        {
+          "index": 0,
+          "from_codec": 12,
+          "to_codec": 6,
+          "from_channels": 1,
+          "to_channels": 4,
+          "adpcm_block_size": null
+        }
+      ],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 12,
+          "to_codec": 6,
+          "from_channels": 1,
+          "to_channels": 4,
+          "adpcm_block_size": null
+        }
+      ]
+    },
+    {
+      "asset": "obj/N_HB530_BTL.a.us",
+      "native_entries": 22,
+      "replacement_entries": 22,
+      "native_rates": [
+        47980,
+        47984,
+        47987,
+        47988,
+        47991,
+        47994,
+        47995,
+        47998,
+        47999,
+        48000,
+        48001,
+        48002,
+        48007,
+        48008,
+        48011,
+        48015,
+        48030,
+        48035
+      ],
+      "replacement_rates": [
+        47890,
+        47893,
+        47953,
+        48000,
+        48003,
+        48008,
+        48010,
+        48017,
+        48022,
+        48027,
+        48029,
+        48035,
+        48039,
+        48049,
+        48065
+      ],
+      "native_version": 4,
+      "replacement_version": 3,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 22,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ],
+      "channel_conversions": [],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ]
+    },
+    {
+      "asset": "obj/N_HB530_BTL2.a.us",
+      "native_entries": 22,
+      "replacement_entries": 22,
+      "native_rates": [
+        47980,
+        47984,
+        47987,
+        47988,
+        47991,
+        47994,
+        47995,
+        47998,
+        47999,
+        48000,
+        48001,
+        48002,
+        48007,
+        48008,
+        48011,
+        48015,
+        48030,
+        48035
+      ],
+      "replacement_rates": [
+        47890,
+        47893,
+        47953,
+        48000,
+        48003,
+        48008,
+        48010,
+        48017,
+        48022,
+        48027,
+        48029,
+        48035,
+        48039,
+        48049,
+        48065
+      ],
+      "native_version": 4,
+      "replacement_version": 3,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 22,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ],
+      "channel_conversions": [],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ]
+    },
+    {
+      "asset": "obj/B_EX160.a.us",
+      "native_entries": 23,
+      "replacement_entries": 23,
+      "native_rates": [
+        47972,
+        47974,
+        47979,
+        47987,
+        47990,
+        47993,
+        47994,
+        47995,
+        47999,
+        48000,
+        48001,
+        48003,
+        48004,
+        48006,
+        48008,
+        48013,
+        48015,
+        48017,
+        48024,
+        48031
+      ],
+      "replacement_rates": [
+        47875,
+        47924,
+        47927,
+        47939,
+        47965,
+        47972,
+        47980,
+        47984,
+        47995,
+        47998,
+        48000,
+        48004,
+        48005,
+        48006,
+        48014,
+        48028,
+        48044
+      ],
+      "native_version": 4,
+      "replacement_version": 3,
+      "native_codecs": [
+        12
+      ],
+      "replacement_codecs": [
+        12
+      ],
+      "native_channels": [
+        1
+      ],
+      "replacement_channels": [
+        1
+      ],
+      "active_streams": 23,
+      "codec_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 22,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ],
+      "channel_conversions": [],
+      "audio_conversions": [
+        {
+          "index": 0,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 1,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 2,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 3,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 4,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 5,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 6,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 7,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 8,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 9,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 10,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 11,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 12,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 13,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 14,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 15,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 16,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 17,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 18,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 19,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 20,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 21,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        },
+        {
+          "index": 22,
+          "from_codec": 6,
+          "to_codec": 12,
+          "from_channels": 1,
+          "to_channels": 1,
+          "adpcm_block_size": 1024
+        }
+      ]
+    }
+  ],
+  "tool_version": "KH2-9.0",
+  "date": "2026-10-16",
+  "vorbis_decoder": "libvorbis",
+  "windows_tested": false
+}

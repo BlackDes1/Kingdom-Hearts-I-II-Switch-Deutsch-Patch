@@ -1,0 +1,132 @@
+{
+  "native_workflow": true,
+  "errors": [],
+  "skipped_pc_images": [
+    {
+      "path": "kh2_first/remastered/menu/fm/title.2ld/US_title_2ld10.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/fm/title.2ld/US_title_2ld11.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/fm/title.2ld/US_title_2ld9.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/fr/title.2ld/FR_title_2ld10.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/fr/title.2ld/FR_title_2ld11.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/fr/title.2ld/FR_title_2ld9.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/gr/title.2ld/GR_title_2ld10.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/gr/title.2ld/GR_title_2ld11.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/gr/title.2ld/GR_title_2ld9.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/it/title.2ld/IT_title_2ld10.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/it/title.2ld/IT_title_2ld11.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/it/title.2ld/IT_title_2ld9.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/sp/title.2ld/SP_title_2ld10.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/sp/title.2ld/SP_title_2ld11.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/sp/title.2ld/SP_title_2ld9.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/us/title.2ld/US_title_2ld10.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/us/title.2ld/US_title_2ld11.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    },
+    {
+      "path": "kh2_first/remastered/menu/us/title.2ld/US_title_2ld9.png",
+      "reason": "PC-Titelbild ohne nativen Slot; Switch verwendet 0..8"
+    }
+  ],
+  "source_files": 6705,
+  "selected_files": 6526,
+  "original_scd": 6225,
+  "original_scd_added": 29,
+  "remastered_audio": 195,
+  "png_images": 106,
+  "relocated_source_files": 157,
+  "corrected_hd_resources": 8,
+  "can_build_supported_patch": true,
+  "compatible_names": true,
+  "expected_scd": 6420,
+  "matched_scd": 6391,
+  "can_build_audio_only": false,
+  "source_extra_files": [],
+  "native_headers_reconstructed_from_actual_tables": 6353,
+  "source_inventory_records": 6705,
+  "previous_errors_reproduced": 8,
+  "corrected_resources": [
+    {
+      "from": "obj/N_CM000_BTL.a.us/voice/battle/us/minnie",
+      "to": "obj/N_DC010_BTL.a.us/voice/battle/us/minnie"
+    },
+    {
+      "from": "obj/N_EX680_BTL10.a.us/voice/battle/us/tt_walla2",
+      "to": "obj/N_EX680_BTL10.a.us/voice/battle/jp/tt_walla2"
+    },
+    {
+      "from": "obj/N_HB040_BTL.a.fr/voice/battle/us/stitch",
+      "to": "obj/N_HB040_BTL.a.fr/voice/battle/us/stusch"
+    },
+    {
+      "from": "obj/N_HB040_BTL.a.gr/voice/battle/us/stitch",
+      "to": "obj/N_HB040_BTL.a.gr/voice/battle/us/stusch"
+    },
+    {
+      "from": "obj/N_HB040_BTL.a.it/voice/battle/us/stitch",
+      "to": "obj/N_HB040_BTL.a.it/voice/battle/us/stusch"
+    },
+    {
+      "from": "obj/N_HB040_BTL.a.sp/voice/battle/us/stitch",
+      "to": "obj/N_HB040_BTL.a.sp/voice/battle/us/stusch"
+    },
+    {
+      "from": "obj/N_HB040_BTL.a.us/voice/battle/us/stitch",
+      "to": "obj/N_HB040_BTL.a.us/voice/battle/us/stusch"
+    },
+    {
+      "from": "obj/N_EX650_BTL1.a.us/voice/battle/us/tt_walla1",
+      "to": "obj/N_EX650_BTL1.a.us/voice/battle/jp/tt_walla1"
+    }
+  ],
+  "metadata_only": true,
+  "complete_game_payload_available": false,
+  "hardware_tested": false
+}

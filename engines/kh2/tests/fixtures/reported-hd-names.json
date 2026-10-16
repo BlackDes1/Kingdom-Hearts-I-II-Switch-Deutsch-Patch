@@ -1,0 +1,312 @@
+{
+  "description": "Reported native HD names and PC source metadata only; no game or mod payload.",
+  "native_assets": [
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_CM000_BTL.a.us",
+      "names": [
+        "-0.dds",
+        "-1.dds",
+        "-10.dds",
+        "-11.dds",
+        "-12.dds",
+        "-13.dds",
+        "-14.dds",
+        "-15.dds",
+        "-16.dds",
+        "-17.dds",
+        "-18.dds",
+        "-19.dds",
+        "-2.dds",
+        "-20.dds",
+        "-21.dds",
+        "-22.dds",
+        "-23.dds",
+        "-24.dds",
+        "-25.dds",
+        "-26.dds",
+        "-27.dds",
+        "-28.dds",
+        "-29.dds",
+        "-3.dds",
+        "-30.dds",
+        "-31.dds",
+        "-32.dds",
+        "-33.dds",
+        "-34.dds",
+        "-35.dds",
+        "-36.dds",
+        "-37.dds",
+        "-38.dds",
+        "-39.dds",
+        "-4.dds",
+        "-40.dds",
+        "-41.dds",
+        "-5.dds",
+        "-6.dds",
+        "-7.dds",
+        "-8.dds",
+        "-9.dds",
+        "se/obj/se388",
+        "voice/battle/us/n_marluxia"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_DC010_BTL.a.us",
+      "names": [
+        "-0.dds",
+        "-1.dds",
+        "-2.dds",
+        "-3.dds",
+        "se/obj/se284",
+        "voice/battle/us/minnie"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_EX680_BTL10.a.us",
+      "names": [
+        "voice/battle/jp/tt_walla2"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_HB040_BTL.a.fr",
+      "names": [
+        "-0.png",
+        "-1.png",
+        "-10.png",
+        "-11.png",
+        "-12.png",
+        "-13.png",
+        "-14.png",
+        "-15.png",
+        "-16.png",
+        "-17.png",
+        "-18.png",
+        "-19.png",
+        "-2.png",
+        "-3.png",
+        "-4.png",
+        "-5.png",
+        "-6.png",
+        "-7.png",
+        "-8.png",
+        "-9.png",
+        "se/obj/se598",
+        "voice/battle/us/stusch"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_HB040_BTL.a.gr",
+      "names": [
+        "-0.png",
+        "-1.png",
+        "-10.png",
+        "-11.png",
+        "-12.png",
+        "-13.png",
+        "-14.png",
+        "-15.png",
+        "-16.png",
+        "-17.png",
+        "-18.png",
+        "-19.png",
+        "-2.png",
+        "-3.png",
+        "-4.png",
+        "-5.png",
+        "-6.png",
+        "-7.png",
+        "-8.png",
+        "-9.png",
+        "se/obj/se598",
+        "voice/battle/us/stusch"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_HB040_BTL.a.it",
+      "names": [
+        "-0.png",
+        "-1.png",
+        "-10.png",
+        "-11.png",
+        "-12.png",
+        "-13.png",
+        "-14.png",
+        "-15.png",
+        "-16.png",
+        "-17.png",
+        "-18.png",
+        "-19.png",
+        "-2.png",
+        "-3.png",
+        "-4.png",
+        "-5.png",
+        "-6.png",
+        "-7.png",
+        "-8.png",
+        "-9.png",
+        "se/obj/se598",
+        "voice/battle/us/stusch"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_HB040_BTL.a.sp",
+      "names": [
+        "-0.png",
+        "-1.png",
+        "-10.png",
+        "-11.png",
+        "-12.png",
+        "-13.png",
+        "-14.png",
+        "-15.png",
+        "-16.png",
+        "-17.png",
+        "-18.png",
+        "-19.png",
+        "-2.png",
+        "-3.png",
+        "-4.png",
+        "-5.png",
+        "-6.png",
+        "-7.png",
+        "-8.png",
+        "-9.png",
+        "se/obj/se598",
+        "voice/battle/us/stusch"
+      ]
+    },
+    {
+      "package": "kh2_fifth",
+      "asset": "obj/N_HB040_BTL.a.us",
+      "names": [
+        "-0.png",
+        "-1.png",
+        "-10.png",
+        "-11.png",
+        "-12.png",
+        "-13.png",
+        "-14.png",
+        "-15.png",
+        "-16.png",
+        "-17.png",
+        "-18.png",
+        "-19.png",
+        "-2.png",
+        "-3.png",
+        "-4.png",
+        "-5.png",
+        "-6.png",
+        "-7.png",
+        "-8.png",
+        "-9.png",
+        "se/obj/se598",
+        "voice/battle/us/stusch"
+      ]
+    },
+    {
+      "package": "kh2_first",
+      "asset": "obj/N_EX650_BTL1.a.us",
+      "names": [
+        "voice/battle/jp/tt_walla1"
+      ]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "kh2_fifth/remastered/obj/N_CM000_BTL.a.us/voice/battle/us/minnie",
+      "size": 380048,
+      "zip_crc32": 2877581229
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_DC010_BTL.a.us/voice/battle/us/minnie",
+      "size": 380048,
+      "zip_crc32": 2877581229
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_EX680_BTL10.a.us/voice/battle/jp/tt_walla2",
+      "size": 221776,
+      "zip_crc32": 2247750825
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_EX680_BTL10.a.us/voice/battle/us/tt_walla2",
+      "size": 221776,
+      "zip_crc32": 2247750825
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.fr/voice/battle/us/stitch",
+      "size": 138928,
+      "zip_crc32": 421153747
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.gr/voice/battle/us/stitch",
+      "size": 138928,
+      "zip_crc32": 421153747
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.it/voice/battle/us/stitch",
+      "size": 138928,
+      "zip_crc32": 421153747
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.sp/voice/battle/us/stitch",
+      "size": 138928,
+      "zip_crc32": 421153747
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.us/voice/battle/us/stitch",
+      "size": 138928,
+      "zip_crc32": 421153747
+    },
+    {
+      "path": "kh2_first/remastered/obj/N_EX650_BTL1.a.us/voice/battle/jp/tt_walla1",
+      "size": 353616,
+      "zip_crc32": 100844041
+    },
+    {
+      "path": "kh2_first/remastered/obj/N_EX650_BTL1.a.us/voice/battle/us/tt_walla1",
+      "size": 353616,
+      "zip_crc32": 100844041
+    }
+  ],
+  "previous_mapping_errors": [
+    {
+      "path": "kh2_fifth/remastered/obj/N_CM000_BTL.a.us/voice/battle/us/minnie",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/minnie"
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_EX680_BTL10.a.us/voice/battle/us/tt_walla2",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/tt_walla2"
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.fr/voice/battle/us/stitch",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/stitch"
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.gr/voice/battle/us/stitch",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/stitch"
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.it/voice/battle/us/stitch",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/stitch"
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.sp/voice/battle/us/stitch",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/stitch"
+    },
+    {
+      "path": "kh2_fifth/remastered/obj/N_HB040_BTL.a.us/voice/battle/us/stitch",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/stitch"
+    },
+    {
+      "path": "kh2_first/remastered/obj/N_EX650_BTL1.a.us/voice/battle/us/tt_walla1",
+      "error": "Native HD-Ressource fehlt: voice/battle/us/tt_walla1"
+    }
+  ]
+}

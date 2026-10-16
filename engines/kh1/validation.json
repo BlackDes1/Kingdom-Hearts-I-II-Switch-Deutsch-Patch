@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-14",
+  "regression_tests_passed": 10,
+  "source_scd_files_verified": 2326,
+  "native_hed_indices_checked": 4,
+  "expected_asset_hashes_matched": 392,
+  "native_asset_samples_rebuilt": 6,
+  "native_scd_files_verified": 27,
+  "native_stream_metadata_pairs_matched": 93,
+  "empty_index_entry_preserved": true,
+  "collection_id_mapping_corrected": true,
+  "hardware_tested": false,
+  "full_native_archives_built_here": false
+}

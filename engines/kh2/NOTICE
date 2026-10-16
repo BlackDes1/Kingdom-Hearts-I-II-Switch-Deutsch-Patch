@@ -1,0 +1,48 @@
+KH2 Switch German Voices and Movies workflow, version 9
+Copyright 2026. Licensed under the Apache License, Version 2.0.
+
+archive_core.py reuses the native archive writer and verifier from the KH1
+Switch v2 workflow. egs_reader.py adapts the public archive key-expansion and
+compression logic from AntonioDePau/KHPCPatchManager:
+https://github.com/AntonioDePau/KHPCPatchManager
+Upstream references: OpenKH/egsEncryption.cs, OpenKH/egsHDAsset.cs, OpenKH/hed.cs.
+The upstream project credits Noxalus, Xeeynamo, and the OpenKH team.
+Its Apache-2.0 license is included as LICENSE.
+
+The intended external patch is TieuLink's German voices mod for KH2 Final Mix:
+https://www.nexusmods.com/kingdomhearts2finalmix/mods/42
+Credits on that mod page: TieuLink (patch and cutscene voices), RubyX_Coded
+(Sora, Donald, Goofy and Roxas battle quotes), Fotia (bosses).
+The external mod assets are NOT included. This package grants no rights in
+those assets and does not rehost them. It reads a locally selected download.
+
+movie_import.py is original workflow code. It invokes a separately installed
+FFmpeg/ffprobe for local media inspection, conversion and decoding checks.
+No FFmpeg executables or libraries are redistributed by this package.
+The movie tests generate their own synthetic video and audio at runtime.
+
+native_patch.py and scd_tools.py add native archive bindings and original-SCD
+support. File-format references: OpenKh SCD documentation and vgmstream's
+sqex_scd.c. The SCD/Ogg parsing is original Python workflow code.
+Real user-provided audio samples were used privately for validation; no such
+audio or native archive payloads are included. The film regression fixture
+contains format metadata only. The HD regression fixture contains source
+filename/size/CRC metadata and native resource names, without media payload.
+
+scd_audio.py invokes the user's FFmpeg to match native Vorbis/MS-ADPCM codecs
+when needed, retains cue/info tables, and validates converted audio by decoding.
+Version 6 added eight explicitly confirmed HD bindings and SCD v4/MS-ADPCM support.
+Version 7 added matching native channel counts, including the supplied mono
+Scar voice to native quad Vorbis, and collects per-file preflight failures.
+Version 8 separates PCM decoding and encoding, uses standard 1024-byte ADPCM
+blocks, normalizes WAVE headers before validation, and retains external audio
+process diagnostics. FFmpeg's encoder source documents the default block size:
+https://github.com/FFmpeg/FFmpeg/blob/master/libavcodec/adpcmenc.c
+
+Version 9 explicitly selects FFmpeg's libvorbis decoder, labels and reorders
+Vorbis channels before remixing, and retries a crashed audio operation once
+in a fresh process with FFmpeg's CPU flags disabled. Ordinary media failures,
+timeouts and persistent crashes still stop output publication. Successful
+recoveries remain in the diagnostic logs. Channel order references:
+https://ffmpeg.org/doxygen/trunk/libvorbisdec_8c_source.html
+https://xiph.org/vorbis/doc/Vorbis_I_spec.html

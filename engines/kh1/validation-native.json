@@ -1,0 +1,423 @@
+{
+  "date": "2026-10-14",
+  "diagnose_filename": "KH1-Switch-Diagnose-20261014-180220-910297.zip",
+  "source_commit": "e17e035f10fe6d61954051fb21371c0452aefdb4",
+  "user_supplied_title_id": "010090C022978000",
+  "resolved_kh1_program_id": "010090C022978001",
+  "hed_indices": {
+    "kh1_first": {
+      "entries": 601,
+      "matched_assets": 35,
+      "expected_assets": 35,
+      "empty_entries": 0
+    },
+    "kh1_third": {
+      "entries": 789,
+      "matched_assets": 47,
+      "expected_assets": 47,
+      "empty_entries": 0
+    },
+    "kh1_fourth": {
+      "entries": 789,
+      "matched_assets": 288,
+      "expected_assets": 288,
+      "empty_entries": 0
+    },
+    "kh1_fifth": {
+      "entries": 791,
+      "matched_assets": 22,
+      "expected_assets": 22,
+      "empty_entries": 1
+    }
+  },
+  "expected_asset_hashes_matched": 392,
+  "native_asset_samples_rebuilt": 6,
+  "native_scd_files_read_replaced_and_sha256_verified": 27,
+  "native_and_german_stream_metadata_pairs": 93,
+  "native_and_german_channel_and_codec_match": true,
+  "empty_fifth_row_negative_placeholder_supported": true,
+  "hardware_tested": false,
+  "full_native_archives_built": false,
+  "native_audio_checks": [
+    {
+      "package": "kh1_first",
+      "asset": "voice/di_sora.vsb",
+      "scd": "di_sora.win32.scd",
+      "streams": 34,
+      "codecs": [
+        0
+      ],
+      "channels": [
+        4
+      ],
+      "native_scd_bytes": 623856,
+      "german_scd_bytes": 746980
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0100sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 61312,
+      "german_scd_bytes": 63586
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0101sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 52464,
+      "german_scd_bytes": 52514
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0102kr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 54784,
+      "german_scd_bytes": 54818
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0103sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 87376,
+      "german_scd_bytes": 87442
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0104kr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 222656,
+      "german_scd_bytes": 222706
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0105sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 147792,
+      "german_scd_bytes": 147858
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0107sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 74144,
+      "german_scd_bytes": 74178
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0108kr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 74576,
+      "german_scd_bytes": 74642
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0109sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 165728,
+      "german_scd_bytes": 165762
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0110sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 61184,
+      "german_scd_bytes": 61218
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0111sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 65168,
+      "german_scd_bytes": 65202
+    },
+    {
+      "package": "kh1_first",
+      "asset": "voice/event/di/di_001.vset",
+      "scd": "di0112kr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 61056,
+      "german_scd_bytes": 61122
+    },
+    {
+      "package": "kh1_third",
+      "asset": "voice/al_donald.vsb",
+      "scd": "al_donald.win32.scd",
+      "streams": 19,
+      "codecs": [
+        0
+      ],
+      "channels": [
+        4
+      ],
+      "native_scd_bytes": 501584,
+      "german_scd_bytes": 592694
+    },
+    {
+      "package": "kh1_third",
+      "asset": "voice/al_goofy.vsb",
+      "scd": "al_goofy.win32.scd",
+      "streams": 16,
+      "codecs": [
+        0
+      ],
+      "channels": [
+        4
+      ],
+      "native_scd_bytes": 441152,
+      "german_scd_bytes": 516144
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_001.vset",
+      "scd": "ew0101go.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 135712,
+      "german_scd_bytes": 141586
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_001.vset",
+      "scd": "ew0102sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 130288,
+      "german_scd_bytes": 130322
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_001.vset",
+      "scd": "ew0103do.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 67456,
+      "german_scd_bytes": 67490
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_001.vset",
+      "scd": "ew0104sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 317728,
+      "german_scd_bytes": 317762
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew0105do.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 111472,
+      "german_scd_bytes": 111522
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew0106go.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 168240,
+      "german_scd_bytes": 168274
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew0107go.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 408912,
+      "german_scd_bytes": 408962
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew0108sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 102784,
+      "german_scd_bytes": 102850
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew0109sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 86704,
+      "german_scd_bytes": 115154
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew01a1do.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 47104,
+      "german_scd_bytes": 47138
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew01a2sr.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 52528,
+      "german_scd_bytes": 52578
+    },
+    {
+      "package": "kh1_fourth",
+      "asset": "voice/event/ew/ew_002.vset",
+      "scd": "ew01a3do.win32.scd",
+      "streams": 1,
+      "codecs": [
+        12
+      ],
+      "channels": [
+        68
+      ],
+      "native_scd_bytes": 53744,
+      "german_scd_bytes": 53794
+    }
+  ],
+  "final_code_logical_offsets_verified": true,
+  "native_fixture_source_files_unchanged": true
+}

@@ -1,0 +1,22 @@
+KH1 Switch German Voices - native archive workflow v2
+Copyright 2026. Licensed under the Apache License, Version 2.0.
+
+The archive codec in egs_reader.py adapts the public archive format, key
+expansion, and compression logic from AntonioDePau/KHPCPatchManager:
+https://github.com/AntonioDePau/KHPCPatchManager
+Upstream files: OpenKH/egsEncryption.cs, OpenKH/egsHDAsset.cs, OpenKH/hed.cs.
+The upstream project credits Noxalus, Xeeynamo, and the OpenKH team.
+Its Apache-2.0 license is included as LICENSE.
+
+The Python PKG writer replaces selected remastered SCD payloads and retains
+all other archive entries and empty HED rows. No upstream executable is
+included in this version.
+
+German voices are provided by Rikux3's kh1fm-undub-ger-pc project:
+https://github.com/Rikux3/kh1fm-undub-ger-pc
+The audio files themselves are not included in this build package.
+No license for game/audio assets is granted by this package's code license.
+
+Technical reference: Fotia13's French Voices Patch, whose author documents
+native Switch 1 PKG/HED patching and the KH1 Program 1 destination:
+https://www.nexusmods.com/kingdomheartsfinalmix/mods/123

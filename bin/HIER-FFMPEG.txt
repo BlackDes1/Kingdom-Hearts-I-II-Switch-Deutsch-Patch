@@ -1,0 +1,20 @@
+FFmpeg und ffprobe werden beim Start der Windows-Oberflaeche automatisch
+in genau diesen bin-Ordner heruntergeladen, entpackt und geprueft.
+
+START.pyw oder START.cmd im Hauptordner starten und die Einrichtung abwarten.
+Vorhandene funktionierende Programme werden ohne neuen Download verwendet.
+Bei Fehlern: "Erneut herunterladen" in der GUI; Details im Live-Protokoll.
+
+Automatischer Download: FFmpeg 9.0.2 Essentials (Windows x64, statisch)
+Quelle: https://www.gyan.dev/ffmpeg/builds/
+SHA-256: 60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba
+
+Hier entstehen ffmpeg.exe, ffprobe.exe, FFmpeg-LICENSE.txt,
+FFmpeg-README.txt und ffmpeg-download.json. Die temporaere ZIP wird entfernt.
+
+Eigene FFmpeg-Programme koennen weiterhin hier abgelegt oder ueber die
+optionale Werkzeug-Auswahl verwendet werden. KH2 benoetigt libx264 sowie
+den libvorbis-Encoder und libvorbis-Decoder. Dynamische Builds benoetigen
+ausserdem ihre DLLs. KH1 benoetigt kein FFmpeg.
+
+Siehe README.md im Hauptordner fuer die vollstaendige Anleitung.

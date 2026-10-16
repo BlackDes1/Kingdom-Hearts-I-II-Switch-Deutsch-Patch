@@ -1,0 +1,19 @@
+{
+  "description": "Metadata from the supplied failing pair, without audio payload.",
+  "asset": "voice/us/event/lk107_skar.win32.scd",
+  "native": {
+    "version": 4,
+    "entries": 1,
+    "codec": 6,
+    "channels": 4,
+    "channel_layout": "quad",
+    "sample_rate": 48000
+  },
+  "german": {
+    "version": 4,
+    "entries": 1,
+    "codec": 12,
+    "channels": 1,
+    "sample_rate": 48007
+  }
+}

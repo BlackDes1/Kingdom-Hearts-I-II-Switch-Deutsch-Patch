@@ -1,0 +1,190 @@
+{
+  "app_version": "1.1",
+  "date": "2026-10-16",
+  "engines": {
+    "kh1": "v2",
+    "kh2": "v9"
+  },
+  "fixed_program_ids": {
+    "kh1": "010090C022978001",
+    "kh2": "010090C022978003"
+  },
+  "unit_and_regression_tests_passed": 128,
+  "desktop_and_controller_tests_passed": 23,
+  "engine_suites": {
+    "kh1": {
+      "tests_passed": 10,
+      "seconds": 0.042,
+      "skipped": 0
+    },
+    "kh2": {
+      "tests_passed": 81,
+      "seconds": 57.128,
+      "skipped": 0
+    }
+  },
+  "visual_validation": {
+    "tests_passed": 37,
+    "skipped": 0,
+    "actual_tk_window_rendered": true,
+    "window_sizes_verified": [
+      [
+        1180,
+        900
+      ],
+      [
+        980,
+        700
+      ]
+    ],
+    "minimum_window_scroll_verified": true,
+    "build_button_always_visible": true,
+    "widget_bounds": {
+      "start": {
+        "x": 914,
+        "y": 855,
+        "w": 248,
+        "h": 35,
+        "mapped": true
+      },
+      "output": {
+        "x": 218,
+        "y": 558,
+        "w": 944,
+        "h": 66,
+        "mapped": true
+      },
+      "romfs": {
+        "x": 218,
+        "y": 324,
+        "w": 944,
+        "h": 66,
+        "mapped": true
+      },
+      "movies": {
+        "x": 218,
+        "y": 480,
+        "w": 944,
+        "h": 66,
+        "mapped": true
+      }
+    },
+    "preview": "assets/gui-preview.png",
+    "platform": "Linux, Tk 8.6 with virtual display",
+    "windows_tested": false
+  },
+  "end_to_end_validation": {
+    "platform": "Linux",
+    "windows_tested": false,
+    "production_engines_modified": false,
+    "cases": [
+      {
+        "case": "KH1 generated four-archive build",
+        "success": true,
+        "program_id": "010090C022978001",
+        "source_unchanged": true,
+        "published_archive_files": 8,
+        "test_only_manifest": true
+      },
+      {
+        "case": "KH1 diagnosis without mod",
+        "success": true,
+        "diagnostic_created": true,
+        "mod_published": false
+      },
+      {
+        "case": "KH2 actual Leon archive pairs plus twelve generated Steam films",
+        "success": true,
+        "program_id": "010090C022978003",
+        "actual_supplied_voice_banks": 2,
+        "generated_movies": 12,
+        "converted_movies": 1,
+        "source_unchanged": true,
+        "single_atmosphere_output": true
+      },
+      {
+        "case": "Real KH2 media failure through child worker",
+        "failure_detected": true,
+        "no_published_atmosphere": true,
+        "gui_log_and_backend_reports_bundled": true
+      },
+      {
+        "case": "Cancel running worker and grandchild process",
+        "success": true,
+        "child_still_active": false,
+        "diagnostic_created": true
+      }
+    ]
+  },
+  "original_engine_source_sha256": {
+    "engines/kh1/kh1_switch.py": "df4a302e15d47e62aafef565f056df3532a2d239285d3111e1704f6674952082",
+    "engines/kh1/egs_reader.py": "69f9689890e78619b1827fe29121455049fefbf67a373e85d4c77835e53a279a",
+    "engines/kh1/tests/test_workflow.py": "7bbd1fa66b1197b1225f1eb0630fab0c3773c39706c2821a4a26b78c50b82bdc",
+    "engines/kh1/tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "engines/kh2/native_patch.py": "33bb577793dd2718f08206f8e5098daeefa787575410417e072d90178afa3a1e",
+    "engines/kh2/scd_audio.py": "2686e78e1754c093f39fd0687ae18c00606c285e8e85f1ef19aeea754415bf09",
+    "engines/kh2/archive_core.py": "547159c8d2e9a0182e14a7a3bd03312636238a38587a549f92a27b1a4251659b",
+    "engines/kh2/scd_tools.py": "24eefd88a62cd4da648e4df0b22c31355c884dc9c41a1439e529f2e904957c23",
+    "engines/kh2/kh2_switch.py": "b3e03b00cc05bc967bc8c1b1ba62e3136c1115bdc41436176a1adcf4cfeffafe",
+    "engines/kh2/egs_reader.py": "69f9689890e78619b1827fe29121455049fefbf67a373e85d4c77835e53a279a",
+    "engines/kh2/movie_import.py": "40390c11a3afa65594db4da8b8bc9f046231880008155c06f4f8f34700b392fa",
+    "engines/kh2/tests/test_workflow.py": "8de0989a09536ca7a2d9671639fca01d68ee2e1f76fdae4d62b93c6b11832dae",
+    "engines/kh2/tests/test_combined.py": "c7222a5c54c5dcb0ab30a8b09a6cac1a938c0bbd447ae3b16f018fb6d9b7ae3e",
+    "engines/kh2/tests/test_movies.py": "7716638b32ae5df1c4bf13ea6bee1827e8acf6543e8fa2da0bd214922132a596",
+    "engines/kh2/tests/test_native.py": "df5b2c575747960c43dd3be838e6ff6877708c1c450876b1d8231c0f2387a376"
+  },
+  "python_dependency_packages_required": [],
+  "interface_language": "de",
+  "gui": "Tkinter",
+  "windows_tested": false,
+  "switch_hardware_tested_with_new_gui": false,
+  "kh2_engine_previously_confirmed_working_by_user": true,
+  "no_game_or_mod_media_included": true,
+  "limitations": "Desktop, bootstrap and process tests ran on Linux. The actual Windows FFmpeg ZIP was downloaded, hashed, extracted and inspected as x86-64 PE; its programs could not be executed on this Linux host. Required codec/version checks run automatically on the target Windows PC before publishing. The unchanged engines retain the previous fixture-based and supplied-sample validation; full game and Windows/Switch tests of the combined GUI remain user-side.",
+  "bootstrap_tests_passed": 14,
+  "engine_suites_reused_unchanged_from": "desktop v1.0 on 2026-10-16; source hashes rechecked for v1.1",
+  "automatic_tool_setup": {
+    "startup_platform": "Windows",
+    "background_thread": true,
+    "target": "APP_ROOT/bin",
+    "ffmpeg_version": "9.0.2",
+    "url": "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip",
+    "archive_bytes": 114768076,
+    "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba",
+    "real_download_completed": true,
+    "published_sha256_matches": true,
+    "real_archive_extracted": true,
+    "programs": {
+      "ffmpeg.exe": {
+        "bytes": 105423872,
+        "pe_architecture": "x86-64"
+      },
+      "ffprobe.exe": {
+        "bytes": 105221120,
+        "pe_architecture": "x86-64"
+      }
+    },
+    "license_and_readme_preserved": true,
+    "runtime_checks": [
+      "ffmpeg -version",
+      "ffprobe -version",
+      "libvorbis decoder",
+      "libvorbis encoder",
+      "libx264 encoder"
+    ],
+    "windows_executables_run_in_this_environment": false,
+    "tested_failure_paths": [
+      "offline and retry",
+      "SHA-256 mismatch",
+      "truncated download",
+      "oversized download",
+      "missing ffprobe",
+      "invalid Windows executable",
+      "missing required codec",
+      "cancellation before and during download",
+      "failed replacement with rollback"
+    ],
+    "gui_download_progress_and_retry_rendered": true,
+    "no_executables_in_source_package": true
+  }
+}

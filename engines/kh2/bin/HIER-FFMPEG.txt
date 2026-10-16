@@ -1,0 +1,12 @@
+Hier ffmpeg.exe und ffprobe.exe aus einem vollständigen FFmpeg-Paket ablegen.
+Benötigt werden libx264 sowie der libvorbis-Encoder UND libvorbis-Decoder.
+Ein vollständiger statischer Build eignet sich für die automatische Umwandlung.
+Ein dynamischer Build benötigt auch seine zugehörigen DLL-Dateien.
+
+Download über die offizielle Seite:
+https://ffmpeg.org/download.html
+
+Alternativ beide Programme über PATH verfügbar machen.
+FFmpeg wird auch für erforderliche Codec- und Kanalwechsel der Stimmen benötigt.
+Der libvorbis-Decoder wird vor dem ersten entsprechenden Einsatz geprüft.
+Weitere Informationen: README-DE.md

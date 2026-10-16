@@ -1,0 +1,30 @@
+KH2 Final Mix - Deutsche Stimmen UND Filme, Version 9 - libvorbis-Audiodekodierung
+
+1. Von Nexus-Mod 42 BEIDE Dateien herunterladen:
+   - German voices 2.1
+   - German movies (STEAM)
+   https://www.nexusmods.com/kingdomhearts2finalmix/mods/42?tab=files
+2. FFmpeg mit ffprobe und libx264 bereitstellen. Beide .exe-Dateien in bin legen.
+   Download: https://ffmpeg.org/download.html
+3. START.cmd aus dem NEUEN v9-Ordner starten. Anzeige v9 pruefen und 5 waehlen.
+4. Den KH2-ROMFS / Program 3 mit Originalarchiven UND Originalfilmen waehlen.
+5. Die Stimmen-ZIP und die Steam-Film-ZIP waehlen.
+6. Ausgabeort waehlen und den vollstaendigen gemeinsamen Bau abwarten.
+7. Den einen erzeugten atmosphere-Ordner auf die SD-Karte kopieren.
+
+Bei Fehlern KH2-Gesamt-Diagnose.zip aus dem Ausgabeordner im Chat hochladen.
+Nur wenn beide Teile erfolgreich geprueft wurden, entsteht der fertige Ordner.
+Das Paket enthaelt das Werkzeug; Mod- und Spieldateien werden lokal eingelesen.
+Die acht gemeldeten Zuordnungsfehler sind korrigiert.
+SCD-Version 4/MS-ADPCM wird unterstuetzt; Codec- und Kanalwechsel erledigt FFmpeg.
+Scars Mono-Stimme wird an die native Quad-Vorbis-Datei angepasst.
+Die Vorpruefung sammelt alle dateibezogenen Fehler eines Durchlaufs.
+Audioanpassungen laufen ueber getrennte PCM-Dekodierung und Kodierung.
+Vorbis wird mit dem libvorbis-Decoder gelesen; Kanalreihenfolgen werden angepasst.
+Ein abgestuerzter Audioprozess wird einmal vollstaendig neu ausgefuehrt.
+Normale Medienfehler, Zeitlimits und wiederholte Abstuerze stoppen den Bau.
+Auch erfolgreich wiederholte Abstuerze bleiben in den Protokollen sichtbar.
+81 Tests und 20 Archivproben bestanden; alle 23 Berserker-Spuren dekodiert.
+FFmpeg-Abstuerze erhalten genaue Protokolle in der Gesamt-Diagnose.
+Der vollstaendige Lauf mit deinem ROMFS und der Switch-Test stehen noch aus.
+Ausfuehrliche Anleitung: README-DE.md
