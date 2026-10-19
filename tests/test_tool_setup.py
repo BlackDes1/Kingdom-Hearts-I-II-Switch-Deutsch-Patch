@@ -99,7 +99,7 @@ class BootstrapTests(unittest.TestCase):
 
     def test_invalid_windows_executable_is_rejected(self):
         data = self.archive({"release/bin/ffmpeg.exe": b"not an exe", "release/bin/ffprobe.exe": b"MZfixture"})
-        with self.assertRaisesRegex(ValueError, "Windows-Programm"):
+        with self.assertRaisesRegex(ValueError, "Windows program"):
             self.install(data)
         self.assertFalse((self.target/"ffmpeg.exe").exists())
         self.assert_no_temporary_files()
@@ -113,13 +113,13 @@ class BootstrapTests(unittest.TestCase):
 
     def test_truncated_download_leaves_no_partial_installation(self):
         data = self.archive()
-        with self.assertRaisesRegex(ValueError, "unvollständig"):
+        with self.assertRaisesRegex(ValueError, "incomplete"):
             self.install(data, length=len(data)+10)
         self.assertFalse((self.target/"ffmpeg.exe").exists())
         self.assert_no_temporary_files()
 
     def test_oversized_response_is_rejected_before_reading(self):
-        with self.assertRaisesRegex(ValueError, "unerwartet groß"):
+        with self.assertRaisesRegex(ValueError, "larger than expected"):
             self.install(b"", length=setup.MAX_DOWNLOAD+1)
         self.assert_no_temporary_files()
 

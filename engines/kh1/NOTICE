@@ -1,4 +1,4 @@
-KH1 Switch German Voices - native archive workflow v2
+KH1 Switch Voices (German and Japanese) - native archive workflow v2.1
 Copyright 2026. Licensed under the Apache License, Version 2.0.
 
 The archive codec in egs_reader.py adapts the public archive format, key
@@ -14,8 +14,10 @@ included in this version.
 
 German voices are provided by Rikux3's kh1fm-undub-ger-pc project:
 https://github.com/Rikux3/kh1fm-undub-ger-pc
-The audio files themselves are not included in this build package.
-No license for game/audio assets is granted by this package's code license.
+Japanese voices are provided by TieuLink through the Japanese voices mod:
+https://www.nexusmods.com/kingdomheartsfinalmix/mods/6
+The audio files themselves are not included in this build package. No license
+for game/audio assets is granted by this package's code license.
 
 Technical reference: Fotia13's French Voices Patch, whose author documents
 native Switch 1 PKG/HED patching and the KH1 Program 1 destination:

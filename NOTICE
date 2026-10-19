@@ -1,30 +1,33 @@
-Kingdom Hearts Switch Patcher desktop application, version 1.1
+Kingdom Hearts Switch Patcher desktop application, version 1.2
 Copyright 2026. Licensed under Apache License 2.0.
 
-This desktop application combines the existing KH1 v2 and KH2 v9 Python
-patch workflows in separate worker processes. Their source and NOTICE files
-are included under engines/kh1 and engines/kh2. Upstream archive references,
-credits and licensing are retained in those directories.
+This application combines KH1 v2 and KH2 v9 archive workflows with a German
+Tkinter interface. The KH1 importer accepts the German Rikux3 source and the
+Japanese TieuLink .kh1pcpatch format. The KH2 importer accepts German or
+Japanese .kh2pcpatch voice mods, plus the separately selected supported Steam
+movie pack. No game, voice, movie, or external mod media is included.
 
-The desktop interface, job controller, worker adapter and abstract crown icon
-are original application code/assets. The GUI uses Python's standard Tkinter
-library; Python and Tcl/Tk are installed separately by the user.
+KH1 German mod:
+https://github.com/Rikux3/kh1fm-undub-ger-pc
+KH1 Japanese voices by TieuLink:
+https://www.nexusmods.com/kingdomheartsfinalmix/mods/6
+KH2 German voices and movies by TieuLink:
+https://www.nexusmods.com/kingdomhearts2finalmix/mods/42
+KH2 Japanese voices by TieuLink:
+https://www.nexusmods.com/kingdomhearts2finalmix/mods/16
 
-On Windows, the application downloads missing or unusable FFmpeg tools from
-Gyan.dev into its own bin directory. The pinned package is FFmpeg 9.0.2
-essentials, a separate GPLv3-or-later distribution, not part of this project's
-Apache-2.0 code. Its SHA-256 is checked before installation. The upstream
-LICENSE and README are saved alongside the downloaded programs. No FFmpeg
-binary is included in this source package.
+These links are credits and download references only. No mod assets are
+redistributed, and this package grants no rights in the game or mod content.
+KINGDOM HEARTS belongs to its respective owners. See engine-specific NOTICE
+files for upstream code and archive-format attributions.
+
+On Windows, missing or unusable FFmpeg tools are downloaded from Gyan.dev to
+this application's bin directory. The pinned FFmpeg 9.0.2 Essentials package
+is a separate GPLv3-or-later distribution. Its SHA-256 is checked before
+installation, and its upstream LICENSE and README are saved alongside the
+programs. No FFmpeg binary is included in this source package.
 https://ffmpeg.org/download.html
 https://www.gyan.dev/ffmpeg/builds/
 https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip
 FFmpeg source revision linked by that release:
 https://github.com/FFmpeg/FFmpeg/commit/946fcce07b
-
-The external KH1 mod is Rikux3/kh1fm-undub-ger-pc:
-https://github.com/Rikux3/kh1fm-undub-ger-pc
-The external KH2 mod is TieuLink's German voices and movies:
-https://www.nexusmods.com/kingdomhearts2finalmix/mods/42
-No game or mod media is redistributed. These notices grant no rights in
-external game or mod content. KINGDOM HEARTS belongs to its respective owners.

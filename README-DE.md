@@ -1,4 +1,3 @@
-# Deutsche Anleitung
+# English documentation
 
-Die vollständige deutsche GitHub-README mit Einrichtung, automatischem
-FFmpeg-Download und Links zu beiden Deutsch-Mods steht in **[README.md](README.md)**.
+The complete English guide, including links to the German and Japanese mods, FFmpeg setup, and patching instructions, is available in **[README.md](README.md)**.

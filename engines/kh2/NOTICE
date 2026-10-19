@@ -9,10 +9,12 @@ Upstream references: OpenKH/egsEncryption.cs, OpenKH/egsHDAsset.cs, OpenKH/hed.c
 The upstream project credits Noxalus, Xeeynamo, and the OpenKH team.
 Its Apache-2.0 license is included as LICENSE.
 
-The intended external patch is TieuLink's German voices mod for KH2 Final Mix:
+The external German voices patch for KH2 Final Mix is by TieuLink:
 https://www.nexusmods.com/kingdomhearts2finalmix/mods/42
 Credits on that mod page: TieuLink (patch and cutscene voices), RubyX_Coded
 (Sora, Donald, Goofy and Roxas battle quotes), Fotia (bosses).
+The Japanese voices patch is also by TieuLink:
+https://www.nexusmods.com/kingdomhearts2finalmix/mods/16
 The external mod assets are NOT included. This package grants no rights in
 those assets and does not rehost them. It reads a locally selected download.
 

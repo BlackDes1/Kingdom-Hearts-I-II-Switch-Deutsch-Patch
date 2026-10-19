@@ -16,7 +16,7 @@ import threading
 import uuid
 import zipfile
 
-VERSION = "1.1"
+VERSION = "1.2"
 RESOURCE_ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent))
 APP_ROOT = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else RESOURCE_ROOT
 EVENT_PREFIX = "@@KH_GUI@@"
@@ -35,6 +35,7 @@ class JobSpec:
     game: str = "kh2"
     action: str = "build"
     mode: str = "all"
+    voice_language: str = "de"
     romfs: str = ""
     mod: str = ""
     movies: str = ""
@@ -51,28 +52,30 @@ class JobSpec:
 
     def validate(self):
         if self.game not in GAMES or self.action not in ("build", "diagnose"):
-            raise ValueError("Bitte ein Spiel und eine gültige Aktion auswählen.")
+            raise ValueError("Select a game and a valid action.")
         if self.mode not in ("all", "voices", "movies") or (self.game == "kh1" and self.mode != "voices"):
-            raise ValueError("Für KH1 ist der Stimmen-Mod verfügbar.")
+            raise ValueError("KH1 supports voice mods only.")
+        if self.voice_language not in ("de", "ja"):
+            raise ValueError("Select German or Japanese as the voice source.")
         if not self.romfs.strip() or not clean_path(self.romfs).is_dir():
-            raise ValueError("Bitte den extrahierten ROMFS-Ordner des ausgewählten Spiels auswählen.")
+            raise ValueError("Select the extracted ROMFS folder for the chosen game.")
         inputs = [clean_path(self.romfs)]
         if self.needs_voices and (self.action == "build" or self.game == "kh2"):
             if not self.mod.strip() or not clean_path(self.mod).exists():
-                raise ValueError("Bitte die Stimmen-Mod-ZIP oder den entpackten Modordner auswählen.")
+                raise ValueError("Select the voice mod ZIP or extracted mod folder.")
             inputs.append(clean_path(self.mod))
         if self.needs_movies:
             if not self.movies.strip() or not clean_path(self.movies).exists():
-                raise ValueError("Bitte die ZIP German movies (STEAM) oder ihren entpackten Ordner auswählen.")
+                raise ValueError("Select the German movies (STEAM) ZIP or its extracted folder.")
             inputs.append(clean_path(self.movies))
         if not self.output_base.strip():
-            raise ValueError("Bitte einen Ausgabeordner auswählen.")
+            raise ValueError("Select an output folder.")
         base = clean_path(self.output_base)
         if base.exists() and not base.is_dir():
-            raise ValueError("Die Ausgabe muss ein Ordner sein.")
+            raise ValueError("The output path must be a folder.")
         for source in inputs:
             if source.is_dir() and base.is_relative_to(source):
-                raise ValueError("Die Ausgabe muss außerhalb von ROMFS und Modordnern liegen.")
+                raise ValueError("The output folder must be outside ROMFS and mod folders.")
         return self
 
 
@@ -85,7 +88,7 @@ def find_tools(selected="", need_probe=True):
         if candidate is None and not selected.strip():
             candidate = shutil.which(name)
         if candidate is None:
-            raise ValueError(name + " fehlt. Bitte die automatische Einrichtung in der Oberfläche erneut starten oder den Werkzeuge-Ordner auswählen.")
+            raise ValueError(name + " is missing. Retry automatic setup in the app or choose a tools folder.")
         found[name] = str(Path(candidate).resolve())
     return found
 
@@ -94,41 +97,42 @@ class ProgressTracker:
     """Progress follows emitted work steps; it never estimates completion from time."""
     def __init__(self, spec):
         self.spec, self.value, self.archive_count = spec, 2, 0
-        self.label = "Eingaben prüfen"
+        self.label = "Checking inputs"
 
     def consume(self, line):
         combined = self.spec.game == "kh2" and self.spec.mode == "all"
         value, label = self.value, self.label
         if "[1/3]" in line:
-            value, label = 5, "Deutsche Stimmen prüfen"
+            value, label = 5, "Checking voices"
         elif "[2/3]" in line:
-            value, label = 72, "Deutsche Filme prüfen und bauen"
+            value, label = 72, "Checking and building German movies"
         elif "[3/3]" in line:
-            value, label = 97, "Gemeinsame Ausgabe bereitstellen"
+            value, label = 97, "Preparing combined output"
         elif "Native Patchdateien geprüft:" in line or "Vorprüfung:" in line or "Moddateien geprüft:" in line:
             match = re.search(r"(\d+)/(\d+)", line)
             if match and int(match[2]):
                 value = 7 + 32 * int(match[1]) / int(match[2])
-                label = "Stimmen prüfen · " + match[1] + " / " + match[2]
+                label = "Checking voices · " + match[1] + " / " + match[2]
         elif "Sprachformat anpassen:" in line:
-            label = "Sprachformat anpassen · " + line.rsplit("/", 1)[-1]
+            label = "Adjusting voice format · " + line.rsplit("/", 1)[-1]
         elif "Native Stimmen und Ressourcen bauen:" in line:
             self.archive_count += 1
             value = 40 + min(20, self.archive_count * 3.3)
-            label = "Archiv bauen · " + line.split(":", 1)[1].strip()
+            label = "Building archive · " + line.split(":", 1)[1].strip()
         elif self.spec.game == "kh1" and "Switch-Archiv bauen" in line:
             match = re.search(r"\[(\d+)/4\] (\w+)", line)
             if match:
-                value, label = 12 + 16 * (int(match[1]) - 1), "Archiv bauen · " + match[2]
+                value, label = 12 + 16 * (int(match[1]) - 1), "Building archive · " + match[2]
         elif "Ressourcen prüfen" in line or "Originaldaten prüfen" in line:
-            value, label = (66 if combined else 91), "Eingebaute Dateien und Originaldaten prüfen"
+            value, label = (66 if combined else 91), "Checking patched files and original data"
         elif self.spec.needs_movies and re.match(r"\[\d+/12\]", line):
             match = re.match(r"\[(\d+)/12\]\s*(.*)", line)
             start = 72 if combined else 8
             value = start + (95 - start) * (int(match[1]) - 1) / 12
-            label = "Filme · " + match[1] + " / 12 · " + match[2].replace(" ...", "")
+            movie_step = match[2].replace(" prüfen ...", "").replace(": ", " · ")
+            label = "Movies · " + match[1] + " / 12 · " + movie_step
         elif "FFmpeg arbeitet weiter" in line:
-            label = "Film wird umgewandelt · FFmpeg arbeitet"
+            label = "Converting movie · FFmpeg is working"
         self.value = min(98, max(self.value, value))
         self.label = label
         return {"type": "progress", "value": self.value, "label": label}
@@ -174,7 +178,7 @@ class JobRunner:
 
     def start(self, spec):
         if self.running:
-            raise ValueError("Es läuft bereits ein Auftrag.")
+            raise ValueError("A job is already running.")
         spec.validate()
         # Freeze the job before the UI can change its state.
         request = asdict(spec)
@@ -206,7 +210,7 @@ class JobRunner:
             with (logs / "GUI-Protokoll.log").open("w", encoding="utf-8") as log:
                 with self.lock:
                     if self.cancel_requested.is_set():
-                        raise InterruptedError("Auftrag abgebrochen.")
+                        raise InterruptedError("Job cancelled.")
                     self.process = subprocess.Popen(worker_command(request_file), stdout=subprocess.PIPE,
                                                     stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace",
                                                     env=environment, **options)
@@ -228,9 +232,9 @@ class JobRunner:
                 result = json.loads(result_path.read_text(encoding="utf-8"))
             if code != 0 or not result.get("success"):
                 result["success"] = False
-                result.setdefault("error", "Der Patcher wurde mit Exit " + str(code) + " beendet.")
+                result.setdefault("error", "The patcher exited with code " + str(code) + " beendet.")
             if self.cancel_requested.is_set() and not result.get("success"):
-                result.update(cancelled=True, error="Auftrag abgebrochen. Die Eingabedateien bleiben erhalten.")
+                result.update(cancelled=True, error="Job cancelled. The input files were left unchanged.")
         except Exception as error:
             result.update(success=False, cancelled=self.cancel_requested.is_set(), error=str(error))
         finally:

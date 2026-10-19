@@ -1,142 +1,87 @@
 # Kingdom Hearts Switch Patcher
 
-**Deutsche Stimmen für Kingdom Hearts I Final Mix und deutsche Stimmen + Steam-Filme für Kingdom Hearts II Final Mix – in einer gemeinsamen Desktop-Oberfläche.**
+**German or Japanese voices for Kingdom Hearts I and II Final Mix, with optional German Steam movies for KH2.**
 
-Der Patcher übernimmt die Dateien der unten verlinkten PC-Mods in die Archive
-deines extrahierten Switch-ROMFS. Das Ergebnis ist ein `atmosphere`-Ordner
-für die Switch. Die Originaldateien bleiben erhalten.
+This patcher adapts selected PC voice and movie files to the extracted archives from your Switch game and creates a verified `atmosphere` folder with the correct Program ID.
 
-![Die deutsche Oberfläche des Kingdom Hearts Switch Patchers](assets/gui-preview.png)
+**Desktop patcher 1.2**
 
-## Unterstützte Spiele
+## Supported content
 
-| Spiel | Inhalt | Feste Program-ID |
-|---|---|---|
-| Kingdom Hearts I Final Mix | Deutsche Stimmen | `010090C022978001` |
-| Kingdom Hearts II Final Mix | Deutsche Stimmen, deutsche Steam-Filme oder beides zusammen | `010090C022978003` |
+| Game | Voices | Movies | Program ID |
+|---|---|---|---|
+| Kingdom Hearts I Final Mix | German or Japanese | Not included | `010090C022978001` |
+| Kingdom Hearts II Final Mix | German or Japanese | German Steam movies, selected separately | `010090C022978003` |
 
-Die Oberfläche setzt die passende ID automatisch. Bei KH1 bleiben Intro und
-Abspann entsprechend dem Originalmod auf Englisch.
+KH1 and KH2 movie files are independent of the voice selection. Japanese voice mods do not replace movie files. For KH2, you can combine Japanese voices with **German movies (STEAM)**. The patcher leaves your original files unchanged.
 
-## Voraussetzungen
+## Download the German and Japanese patches
 
-- Windows 10/11 mit 64 Bit.
-- [Python 3.10 oder neuer](https://www.python.org/downloads/windows/) mit Tkinter. Beim offiziellen Windows-Installer ist Tkinter normalerweise enthalten.
-- Der extrahierte ROMFS des jeweiligen Switch-Spiels aus deiner eigenen Kopie.
-- Die passenden Deutsch-Mods aus dem nächsten Abschnitt.
-- Ein beschreibbarer Programmordner, ausreichend freier Speicher für die neue Mod-Ausgabe und Internet für den ersten Werkzeug-Download.
-- Eine Switch-Einrichtung, die Atmosphère-LayeredFS-Mods laden kann.
-
-Zusätzliche Python-Pakete oder eine Installation mit `pip` sind nicht nötig.
-Spielarchive, Sprachaufnahmen und Filme sind im Patcher-Paket nicht enthalten.
-
-## Deutsch-Patches herunterladen
+Download mods from their original pages. **Game files, voices, and movies are not included in this patcher.** Nexus Mods may require an account to download files.
 
 ### Kingdom Hearts I Final Mix
 
-Der deutsche Stimmen-Mod stammt von **Rikux3**:
-
-- [Projektseite: kh1fm-undub-ger-pc](https://github.com/Rikux3/kh1fm-undub-ger-pc)
-- [Passenden, vom Patcher geprüften Quellenstand als ZIP herunterladen](https://github.com/Rikux3/kh1fm-undub-ger-pc/archive/e17e035f10fe6d61954051fb21371c0452aefdb4.zip)
-
-Wähle dieses Quellen-ZIP in der Oberfläche unter **Deutsche Stimmen** aus.
-Ein entpackter Quellenordner mit erhaltener Verzeichnisstruktur ist ebenfalls
-möglich. Der KH1-Patcher prüft die enthaltenen Audiodateien gegen sein Manifest.
+- **German:** [Rikux3 – kh1fm-undub-ger-pc](https://github.com/Rikux3/kh1fm-undub-ger-pc). Use the [source snapshot verified for this patcher](https://github.com/Rikux3/kh1fm-undub-ger-pc/archive/e17e035f10fe6d61954051fb21371c0452aefdb4.zip) or the matching extracted mod folder.
+- **Japanese:** [TieuLink – Japanese voices](https://www.nexusmods.com/kingdomheartsfinalmix/mods/6?tab=files). In the **Files** tab, download **Japanese voices** (version 1.0). The patcher accepts the `.kh1pcpatch` file, a ZIP containing that patch file, or an extracted folder.
 
 ### Kingdom Hearts II Final Mix
 
-Beide Downloads stammen von **TieuLink** und liegen auf derselben Nexus-Modseite:
+All three files are available from the **Files** tab on the relevant Nexus page:
 
-- [German voices – Mod-Beschreibung](https://www.nexusmods.com/kingdomhearts2finalmix/mods/42)
-- [Dateien und Downloads öffnen](https://www.nexusmods.com/kingdomhearts2finalmix/mods/42?tab=files)
+| Language / content | Download | Version | Mod page |
+|---|---|---:|---|
+| German voices | **German voices** | 2.1, Steam support | [Nexus Mods](https://www.nexusmods.com/kingdomhearts2finalmix/mods/42?tab=files) |
+| Japanese voices | **Japanese voices** | 2.1 | [Nexus Mods](https://www.nexusmods.com/kingdomhearts2finalmix/mods/16?tab=files) |
+| German Steam movies | **German movies (STEAM)** | 1.0 | [Nexus Mods](https://www.nexusmods.com/kingdomhearts2finalmix/mods/42?tab=files) |
 
-| Download im Reiter „Files“ | Version | Auswahl in der Oberfläche |
-|---|---|---|
-| **German voices** | **2.1** mit Steam-Unterstützung | Deutsche Stimmen |
-| **German movies (STEAM)** | **1.0** | Deutsche Filme · Steam |
+Voice files use the `.kh2pcpatch` format. The patcher can read the file directly, a ZIP containing one `.kh2pcpatch`, or an extracted mod folder. Select **Voices + Movies** to build both, or **Voices** to build only the voice patch. Movie patching requires the separate **German movies (STEAM)** file.
 
-Für **Stimmen + Filme** werden beide Downloads benötigt. Wähle die ZIP-Dateien
-direkt aus oder verwende ihre vollständig entpackten Ordner. Für den hier
-beschriebenen Ablauf wird das Filmpaket **German movies (STEAM)** verwendet.
-Für den Download bei Nexus Mods ist eine Anmeldung erforderlich.
+## Requirements
 
-## Starten und automatisch FFmpeg einrichten
+- 64-bit Windows 10 or 11.
+- [Python 3.10 or newer](https://www.python.org/downloads/windows/) with Tkinter. Tkinter is normally included in the official Windows installer.
+- The extracted ROMFS for the relevant Switch game, from your own copy.
+- The German or Japanese mod you want to use.
+- A writable patcher folder and enough free disk space for the new mod output.
+- An internet connection for the first download of the KH2 media tools.
+- A Switch setup that can load Atmosphère LayeredFS mods.
 
-1. Das komplette Patcher-Paket in einen beschreibbaren Ordner entpacken.
-2. **START.pyw** doppelklicken. Alternativ **START.cmd** verwenden.
-3. Beim Start prüft die Oberfläche `bin/ffmpeg.exe` und `bin/ffprobe.exe`.
-4. Fehlt ein Programm oder ist das vorhandene Paar unbrauchbar, lädt der Patcher
-   automatisch das Windows-Paket **FFmpeg 9.0.2 Essentials von Gyan.dev** herunter.
-   Der Download umfasst ungefähr **110 MB**.
-5. Nach Prüfung der SHA-256-Prüfsumme werden beide Programme entpackt, ihre
-   Ausführbarkeit und die benötigten Codecs geprüft und im gemeinsamen
-   **bin-Ordner neben START.pyw** installiert.
+No additional Python packages or `pip` installation are required.
 
-Die GUI zeigt dabei Fortschritt und Downloadgröße an. Sobald **FFmpeg + ffprobe
-bereit · bin** erscheint, kann KH2 gepatcht werden. Funktionierende Programme
-im `bin`-Ordner werden beim nächsten Start ohne erneuten Download weiterverwendet.
+## Start the patcher and install FFmpeg automatically
 
-Bei einem Downloadfehler gibt es **Erneut herunterladen**. Die genaue Meldung
-steht im **Live-Protokoll**. Unter **Werkzeuge** kann alternativ ein eigener
-Ordner mit beiden Programmen gewählt werden. Dieser sollte auch die zugehörigen
-DLLs enthalten, falls ein dynamischer FFmpeg-Build verwendet wird. Benötigt
-werden der `libvorbis`-Decoder sowie die Encoder `libvorbis` und `libx264`.
-KH1 benötigt FFmpeg nicht und bleibt auch bei einem Downloadfehler nutzbar.
+1. Extract the entire patcher package to a writable folder.
+2. Double-click **START.pyw**. You can also run **START.cmd**.
+3. On startup, the app checks for `bin/ffmpeg.exe` and `bin/ffprobe.exe`.
+4. If either tool is missing or the installed pair is not usable, the patcher downloads **FFmpeg 9.0.2 Essentials from Gyan.dev**.
+5. After checking the SHA-256 checksum and required codecs, it installs `ffmpeg.exe` and `ffprobe.exe` in the shared **bin folder next to START.pyw**.
 
-Downloadquelle: [Gyan.dev – FFmpeg Builds](https://www.gyan.dev/ffmpeg/builds/),
-verlinkt auf der [offiziellen FFmpeg-Downloadseite](https://ffmpeg.org/download.html).
-Die Programme, Lizenzhinweise und Downloadinformationen landen ausschließlich
-im gemeinsamen `bin`-Ordner. Das Archiv und temporäre Installationsdateien
-werden nach dem Vorgang entfernt.
+The first download is about 110 MB. The GUI shows download progress and size. Valid tools in `bin` are reused on later launches. If a download fails, select **Retry download**; the live log shows the error details. Alternatively, choose a custom FFmpeg folder under **Tools**. The build needs the `libvorbis` decoder and the `libvorbis` and `libx264` encoders. KH1 does not require FFmpeg.
 
-## Einen Patch erstellen
+Download source: [Gyan.dev – FFmpeg Builds](https://www.gyan.dev/ffmpeg/builds/), linked from the [official FFmpeg download page](https://ffmpeg.org/download.html). The build package's license and README are kept beside the tools. The archive and temporary installation files are removed after setup.
 
-1. **Kingdom Hearts I** oder **Kingdom Hearts II** auswählen.
-2. Für KH2 **Stimmen + Filme**, **Stimmen** oder **Filme** festlegen.
-3. Den **ROMFS des ausgewählten Spiels** auswählen. Verwende den Stand, mit dem
-   du anschließend spielen wirst. Der Ordner muss die benötigten `.hed`- und
-   `.pkg`-Archivpaare enthalten.
-4. Den Stimmen-Mod und gegebenenfalls das Steam-Filmpaket auswählen.
-5. Einen **Ausgabeordner außerhalb von ROMFS und Modordnern** angeben.
-6. **Patch erstellen** anklicken und den erfolgreichen Abschluss abwarten.
-7. Den fertigen `atmosphere`-Ordner aus dem neu angelegten Auftrag auf die
-   SD-Karte kopieren. Die Moddateien liegen je nach Spiel unter:
+## Build a patch
+
+1. Select **Kingdom Hearts I** or **Kingdom Hearts II**.
+2. Under **Voices**, select **German** or **Japanese**. Use **Open mod page** to visit the matching original download page.
+3. For KH2, choose **Voices + Movies**, **Voices**, or **Movies**.
+4. Select the extracted **ROMFS** for that game. Use the same game version you plan to play; the folder must contain the required `.hed` and `.pkg` archives.
+5. Select the matching voice mod and, for KH2, the movie package if needed.
+6. Choose an output folder outside ROMFS and the mod folders, then click **Build patch**.
+7. Copy the completed `atmosphere` folder from the new job folder to your SD card. The mod files go here:
 
    - KH1: `atmosphere/contents/010090C022978001/romfs/`
    - KH2: `atmosphere/contents/010090C022978003/romfs/`
 
-Jeder Lauf erhält einen eigenen Ordner wie `KH-Patch-KH2-…`. Für KH2 erzeugt
-**Stimmen + Filme** einen gemeinsamen Modordner. Fortschritt, verstrichene Zeit
-und Meldungen erscheinen in der Oberfläche. Die gewählten Pfade werden pro
-Spiel gespeichert. Laufende Aufträge lassen sich mit **Abbrechen** beenden.
+Each run gets its own output folder. **Voices + Movies** creates one combined KH2 mod folder. Progress, elapsed time, and messages appear in the app. Selected paths and voice language are saved separately for each game. Use **Cancel** to stop a running job.
 
-## Diagnose und Fehler
+## Diagnostics and verification
 
-Unter **Diagnose** kann ein Prüfauftrag gestartet werden. Für eine reine
-KH1-Diagnose wird kein Stimmen-Mod benötigt.
+Use **Diagnostics** to run an inspection job. A voice mod is not required for a KH1-only diagnostic. Reports, logs, and, when applicable, small archive samples are saved in the job folder. Full game archives, voices, and movies are never copied into diagnostic ZIPs.
 
-Im jeweiligen Auftragsordner liegen die Berichte und **KH-Diagnose.zip**.
-Die Schaltflächen **Ausgabe öffnen** und **Diagnose öffnen** führen direkt
-dorthin. **Protokoll speichern** exportiert die Meldungen aus dem Live-Protokoll.
+The patcher checks the expected file names in the Switch ROMFS, the size and SHA-256 hash of imported voice files, and unchanged archive resources. If files are missing or names do not match, the build stops and saves a diagnostic report. A successful archive check does not replace a test on the Switch.
 
-Die Diagnose enthält Protokolle, Metadaten und gegebenenfalls kleine
-Audio-/Archivproben; vollständige Spielarchive und Filme werden nicht eingepackt.
-Bei einem Fehler oder Abbruch wird keine fertige Mod-Ausgabe im Hauptordner
-freigegeben. Details zur Ursache bleiben im Auftragsordner erhalten.
-
-Wenn FFmpeg nicht installiert werden kann, zuerst Internetverbindung und
-Schreibrechte im entpackten Patcher-Ordner prüfen und den Download wiederholen.
-Bei einer Prüfsummenabweichung wird das heruntergeladene Paket verworfen.
-
-## Entwicklung und Prüfstand
-
-Die Oberfläche und der automatische Download verwenden ausschließlich die
-Python-Standardbibliothek. Die bisherigen Archiv- und Medien-Engines liegen
-unverändert unter `engines/kh1` und `engines/kh2` und laufen in eigenen Prozessen.
-`tool_setup.py` enthält die festgelegte FFmpeg-Version, Downloadadresse und
-SHA-256-Prüfsumme.
-
-Tests im Projektordner starten:
+Run the tests from the project folder:
 
 ```powershell
 py -3 -m unittest discover -s tests -v
@@ -144,23 +89,13 @@ py -3 -m unittest discover -s engines/kh1/tests -v
 py -3 -m unittest discover -s engines/kh2/tests -v
 ```
 
-GUI-Tests benötigen eine grafische Umgebung. Der Download und das Entpacken
-des echten Windows-Archivs wurden auf Linux geprüft. Die Ausführung der
-heruntergeladenen Windows-Programme und ein vollständiger Test der gemeinsamen
-GUI auf Windows und Switch stehen noch aus. Der genaue Prüfstand ist in
-[validation.json](validation.json) dokumentiert.
+Japanese imports were checked with synthetic test archives; the real Nexus mod archives are not included in this package. Windows and Switch hardware testing must be done with your own files. See [validation.json](validation.json) for the detailed validation record.
 
-## Credits und Lizenzen
+## Credits and licenses
 
-- **Rikux3**: KH1-Mod und deutsche Stimmen.
-- **TieuLink**: KH2-Patch und deutsche Stimmen der Zwischensequenzen.
-- **RubyX_Coded**: KH2-Kampfstimmen von Sora, Donald, Goofy und Roxas.
-- **Fotia**: KH2-Boss-Kampfstimmen.
-- **FFmpeg-Projekt und Gyan.dev**: Medienwerkzeuge und Windows-Builds.
-- Weitere Quellen und Hinweise stehen in [NOTICE](NOTICE) und den jeweiligen Engine-Ordnern.
+- **Rikux3**: KH1 mod and German voices.
+- **TieuLink**: Japanese voice mods for KH1 and KH2, plus the KH2 German voice and movie patches.
+- **RubyX_Coded** and **Fotia**: contributions to KH2 battle voices.
+- **FFmpeg project and Gyan.dev**: media tools and Windows builds.
 
-Der Patcher-Code steht unter **Apache-2.0**, siehe [LICENSE](LICENSE).
-Der automatisch heruntergeladene FFmpeg-Build steht separat unter **GPLv3 oder
-neuer**; seine Lizenz und README werden im `bin`-Ordner abgelegt. Die Rechte
-an Spielen, Filmen und externen Moddateien verbleiben bei ihren jeweiligen
-Rechteinhabern. Lade die Deutsch-Mods über die verlinkten Originalseiten herunter.
+The patcher code is licensed under **Apache-2.0**; see [LICENSE](LICENSE). The automatically downloaded FFmpeg build is separately licensed under **GPLv3 or later**. Rights to the games and external mod files remain with their respective owners. See [NOTICE](NOTICE) and the engine folders for additional notes.

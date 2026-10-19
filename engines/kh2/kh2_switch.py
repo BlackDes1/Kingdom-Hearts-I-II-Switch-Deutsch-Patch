@@ -24,7 +24,10 @@ HERE = Path(__file__).resolve().parent
 TITLE_ID = "010090C022978003"
 COLLECTION_ID = "010090C022978000"
 PACKAGES = tuple("kh2_" + word for word in ("first", "second", "third", "fourth", "fifth", "sixth"))
-SOURCE_URL = "https://www.nexusmods.com/kingdomhearts2finalmix/mods/42"
+SOURCE_URLS = {
+    "de": "https://www.nexusmods.com/kingdomhearts2finalmix/mods/42",
+    "ja": "https://www.nexusmods.com/kingdomhearts2finalmix/mods/16",
+}
 MEMBER = re.compile(r"(?:^|/)(kh2_(?:first|second|third|fourth|fifth|sixth))/(original|remastered|raw)/(.+)$", re.I)
 SAMPLE_LIMIT = 2 * 1024 * 1024
 SAMPLE_BUDGET = 32 * 1024 * 1024
@@ -32,8 +35,11 @@ SAMPLE_BUDGET = 32 * 1024 * 1024
 
 class PatchSource:
     """Read a patch ZIP, Nexus wrapper ZIP or extracted directory without executing it."""
-    def __init__(self, path):
+    def __init__(self, path, voice_language="de"):
         self.path = Path(path).resolve()
+        if voice_language not in SOURCE_URLS:
+            raise ValueError("Bitte Deutsch oder Japanisch als KH2-Stimmenquelle auswählen.")
+        self.voice_language = voice_language
         self.archive = None
         self.temp = None
         self.records = {}
@@ -92,6 +98,7 @@ class PatchSource:
                                        "handle": handle}
 
     def _open(self):
+        patch_title = "Japanese voices" if self.voice_language == "ja" else "German voices 2.1"
         if self.path.is_dir():
             self._collect()
             if not self.records:
@@ -121,7 +128,7 @@ class PatchSource:
         else:
             raise ValueError("Bitte eine ZIP, .kh2pcpatch oder einen entpackten Modordner auswählen.")
         if not self.records:
-            raise ValueError("Keine KH2-Patchdateien gefunden. Benötigt wird die Hauptdatei 'German voices 2.1'.")
+            raise ValueError("Keine KH2-Patchdateien gefunden. Benötigt wird die Hauptdatei '" + patch_title + "'.")
 
     def read(self, canonical):
         record = self.records[canonical]
@@ -130,11 +137,15 @@ class PatchSource:
         return record["handle"].read_bytes()
 
     def summary(self):
-        return {"selected_name": self.path.name, "nested_patch_name": self.nested_name,
-                "intended_mod_page": SOURCE_URL, "nexus_main_file_id": 811,
-                "files_outside_standard_payload": self.outside_payload,
-                "files": [{k: v for k, v in item.items() if k != "handle"}
-                          for _, item in sorted(self.records.items())]}
+        result = {"selected_name": self.path.name, "nested_patch_name": self.nested_name,
+                  "voice_language": self.voice_language,
+                  "intended_mod_page": SOURCE_URLS[self.voice_language],
+                  "files_outside_standard_payload": self.outside_payload,
+                  "files": [{k: v for k, v in item.items() if k != "handle"}
+                            for _, item in sorted(self.records.items())]}
+        if self.voice_language == "de":
+            result["nexus_main_file_id"] = 811
+        return result
 
     def targets(self):
         result = collections.defaultdict(dict)
@@ -482,7 +493,7 @@ def build_all(root, source, movies, output, title_id=TITLE_ID, version="", ffmpe
             report["free_space_required_bytes"] = needed
             if shutil.disk_usage(output).free < needed:
                 raise ValueError(f"Zu wenig Platz für Stimmen und Filme zusammen: mindestens {needed / 1024**3:.1f} GiB.")
-        print("\n[1/3] Deutsche Stimmen prüfen und bauen ...", flush=True)
+        print("\n[1/3] Stimmen prüfen und bauen ...", flush=True)
         report["phase"] = "Stimmen"
         build(root, source, work / "voices", program_id, version, tools.ffmpeg)
         voice_report = json.loads((work / "voices/build-result.json").read_text(encoding="utf-8"))

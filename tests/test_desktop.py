@@ -54,7 +54,7 @@ class JobTests(unittest.TestCase):
             with zipfile.ZipFile(path,'w') as z:z.writestr('diagnose.json','{}')
             return {}
         return types.SimpleNamespace(build=build,build_all=build,build_movies=build,diagnose=diagnose,
-                                     PatchSource=lambda path:contextlib.nullcontext('loaded-source'))
+                                     PatchSource=lambda path,**kwargs:contextlib.nullcontext('loaded-source'))
 
     def run_worker(self,spec,engine):
         request=dict(asdict(spec),job_root=str(self.job))
@@ -65,6 +65,18 @@ class JobTests(unittest.TestCase):
         self.assertEqual(core.GAMES['kh1']['id'],'010090C022978001')
         self.assertEqual(core.GAMES['kh2']['id'],'010090C022978003')
         for game in core.GAMES.values():self.assertEqual(len(game['id']),16)
+
+    def test_voice_language_is_validated_and_persisted_in_build_report(self):
+        spec=self.spec('kh1','voices')
+        spec.voice_language='ja'
+        result=self.run_worker(spec,self.fake_engine('kh1'))
+        self.assertTrue(result['success'])
+        self.assertEqual(self.calls[0][1]['voice_language'],'ja')
+        report=json.loads((self.job/'Berichte/build-result.json').read_text())
+        self.assertEqual(report['voice_language'],'ja')
+        invalid=self.spec('kh1','voices');invalid.voice_language='fr'
+        with self.assertRaisesRegex(ValueError,'German or Japanese'):
+            invalid.validate()
 
     def test_kh1_passes_fixed_id_and_publishes_verified_tree(self):
         result=self.run_worker(self.spec('kh1','voices'),self.fake_engine('kh1'))
@@ -96,7 +108,7 @@ class JobTests(unittest.TestCase):
         self.assertFalse((self.job/'atmosphere').exists())
 
     def test_wrong_backend_id_blocks_publication(self):
-        with self.assertRaisesRegex(ValueError,'feste Program-ID'):
+        with self.assertRaisesRegex(ValueError,'fixed Program ID'):
             self.run_worker(self.spec('kh1','voices'),self.fake_engine('kh1',wrong_id=True))
         self.assertFalse((self.job/'atmosphere').exists())
 
@@ -115,7 +127,7 @@ class JobTests(unittest.TestCase):
     def test_output_inside_inputs_is_rejected(self):
         for path in (self.romfs,self.romfs/'nested'):
             spec=self.spec();spec.output_base=str(path)
-            with self.assertRaisesRegex(ValueError,'außerhalb'):spec.validate()
+            with self.assertRaisesRegex(ValueError,'outside'):spec.validate()
 
     def test_wrong_game_and_missing_inputs_are_rejected(self):
         spec=self.spec();spec.game='kh3'
@@ -147,7 +159,7 @@ class JobTests(unittest.TestCase):
     def test_explicit_tools_folder_does_not_silently_use_path(self):
         folder=self.root/'tools';folder.mkdir()
         with mock.patch.object(core.shutil,'which',return_value='/elsewhere/ffmpeg'):
-            with self.assertRaisesRegex(ValueError,'ffmpeg fehlt'):core.find_tools(str(folder))
+            with self.assertRaisesRegex(ValueError,'ffmpeg is missing'):core.find_tools(str(folder))
         for name in ('ffmpeg.exe','ffprobe.exe'):(folder/name).write_bytes(b'fixture')
         self.assertEqual(core.find_tools(str(folder))['ffmpeg'],str(folder/'ffmpeg.exe'))
 
@@ -195,13 +207,28 @@ class DesktopTests(unittest.TestCase):
 
     def test_game_selection_and_remembered_paths(self):
         self.assertEqual(self.app.game,'kh2');self.assertEqual(self.app.mode,'all')
+        self.app.select_voice_language('ja')
         self.app.romfs.value.set('KH2 ROMFS')
         self.app.select_game('kh1');self.app.update()
         self.assertEqual(self.app.mode,'voices');self.assertFalse(self.app.movies.winfo_ismapped())
+        self.assertEqual(self.app.voice_language.get(),'de')
+        self.app.select_voice_language('ja')
         self.app.romfs.value.set('KH1 ROMFS')
         self.app.select_game('kh2');self.app.update()
         self.assertEqual(self.app.romfs.value.get(),'KH2 ROMFS')
+        self.assertEqual(self.app.voice_language.get(),'ja')
         self.assertTrue(self.app.movies.winfo_ismapped())
+
+    def test_japanese_mod_links_follow_game_and_voice_language(self):
+        import kh_gui
+        with mock.patch.object(kh_gui.webbrowser,'open') as open_link:
+            self.app.select_voice_language('ja')
+            self.app.open_voice_mod()
+            open_link.assert_called_with('https://www.nexusmods.com/kingdomhearts2finalmix/mods/16?tab=files')
+            self.app.select_game('kh1')
+            self.app.select_voice_language('ja')
+            self.app.open_voice_mod()
+            open_link.assert_called_with('https://www.nexusmods.com/kingdomheartsfinalmix/mods/6?tab=files')
 
     def test_busy_state_disables_mutations_and_keeps_log_available(self):
         self.app.set_busy(True)
@@ -210,7 +237,7 @@ class DesktopTests(unittest.TestCase):
         self.app.show_page('log');self.app.update()
         self.assertTrue(self.app.log.winfo_ismapped())
         self.app.append_log('FFmpeg arbeitet weiter')
-        self.assertIn('FFmpeg arbeitet',self.app.log.get('1.0','end'))
+        self.assertIn('FFmpeg is still working',self.app.log.get('1.0','end'))
 
     def test_failure_opens_live_log_and_preserves_error(self):
         self.app.set_busy(True)
@@ -221,9 +248,9 @@ class DesktopTests(unittest.TestCase):
 
     def test_success_and_diagnosis_have_distinct_completion_text(self):
         self.app.finished({'success':True,'diagnosis':True})
-        self.assertIn('Diagnose erstellt',self.app.status.cget('text'))
+        self.assertIn('Diagnostics complete',self.app.status.cget('text'))
         self.app.finished({'success':True,'diagnosis':False})
-        self.assertIn('Patch ist fertig',self.app.status.cget('text'))
+        self.assertIn('patch is ready',self.app.status.cget('text'))
         self.assertEqual(self.app.progress_value,100)
 
     def test_tool_download_disables_kh2_but_keeps_fields_and_kh1_available(self):
@@ -246,7 +273,7 @@ class DesktopTests(unittest.TestCase):
         self.app.poll_tool_setup();self.app.update()
         self.assertTrue(self.app.tools_ready);self.assertFalse(self.app.setup_busy)
         self.assertEqual(self.app.start_button.cget('state'),'normal')
-        self.assertIn('bereit',self.app.tool_status.cget('text'))
+        self.assertIn('ready',self.app.tool_status.cget('text'))
 
     def test_tool_failure_offers_retry_and_keeps_reason_in_log(self):
         self.app.setup_busy=True

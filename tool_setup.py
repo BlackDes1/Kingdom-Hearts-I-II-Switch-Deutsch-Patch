@@ -24,7 +24,7 @@ NAMES = ("ffmpeg.exe", "ffprobe.exe")
 
 def check_cancel(cancel):
     if cancel is not None and cancel.is_set():
-        raise InterruptedError("Werkzeug-Download abgebrochen.")
+        raise InterruptedError("Tool download cancelled.")
 
 
 def validate_tools(folder):
@@ -35,21 +35,21 @@ def validate_tools(folder):
     def run(name, *args):
         path = folder / name
         if not path.is_file():
-            raise ValueError(name + " fehlt.")
+            raise ValueError(name + " is missing.")
         try:
             result = subprocess.run([str(path), *args], capture_output=True, text=True,
                                     encoding="utf-8", errors="replace", timeout=30, **options)
         except (OSError, subprocess.TimeoutExpired) as error:
-            raise ValueError(name + " kann nicht ausgeführt werden: " + str(error)) from error
+            raise ValueError(name + " could not be run: " + str(error)) from error
         if result.returncode:
-            raise ValueError(name + " meldet einen Fehler: " + (result.stderr or result.stdout)[-600:])
+            raise ValueError(name + " reported an error: " + (result.stderr or result.stdout)[-600:])
         return result.stdout + "\n" + result.stderr
 
     versions = {}
     for name in NAMES:
         output = run(name, "-version")
         if not output.startswith(name.removesuffix(".exe") + " version "):
-            raise ValueError(name + " liefert keine gültige Versionsinformation.")
+            raise ValueError(name + " returned invalid version information.")
         versions[name] = output.splitlines()[0]
     decoders = run("ffmpeg.exe", "-hide_banner", "-decoders")
     encoders = run("ffmpeg.exe", "-hide_banner", "-encoders")
@@ -57,25 +57,25 @@ def validate_tools(folder):
                                  (encoders, "libvorbis", "Encoder"),
                                  (encoders, "libx264", "Encoder")):
         if not re.search(r"(?m)^\s*\S{6}\s+" + codec + r"\b", listing):
-            raise ValueError("FFmpeg: " + codec + "-" + kind + " fehlt.")
+            raise ValueError("FFmpeg: " + codec + "-" + kind + " is missing.")
     return {"folder": str(folder.resolve()), "versions": versions}
 
 
 def download_archive(target, progress, cancel):
     check_cancel(cancel)
-    progress({"phase": "download", "label": "FFmpeg herunterladen", "value": 0})
+    progress({"phase": "download", "label": "Download FFmpeg", "value": 0})
     request = urllib.request.Request(DOWNLOAD_URL, headers={"User-Agent": "KH-Switch-Patcher/1.1"})
     digest = hashlib.sha256()
     received = 0
     with urllib.request.urlopen(request, timeout=20) as response:
         if not response.geturl().startswith("https://"):
-            raise ValueError("Die Downloadquelle verwendet kein HTTPS.")
+            raise ValueError("The download source does not use HTTPS.")
         try:
             total = int(response.headers.get("Content-Length", "0"))
         except ValueError:
             total = 0
         if total > MAX_DOWNLOAD:
-            raise ValueError("Das FFmpeg-Archiv ist unerwartet groß.")
+            raise ValueError("The FFmpeg archive is larger than expected.")
         with Path(target).open("wb") as output:
             while True:
                 check_cancel(cancel)
@@ -84,17 +84,17 @@ def download_archive(target, progress, cancel):
                     break
                 received += len(chunk)
                 if received > MAX_DOWNLOAD:
-                    raise ValueError("Das FFmpeg-Archiv überschreitet die erlaubte Downloadgröße.")
+                    raise ValueError("The FFmpeg archive exceeds the allowed download size.")
                 output.write(chunk)
                 digest.update(chunk)
-                progress({"phase": "download", "label": "FFmpeg herunterladen",
+                progress({"phase": "download", "label": "Download FFmpeg",
                           "value": min(84, 84 * received / total) if total > 0 else 0,
                           "received": received, "total": total})
     check_cancel(cancel)
     if total > 0 and received != total:
-        raise ValueError("Der FFmpeg-Download ist unvollständig. Bitte erneut versuchen.")
+        raise ValueError("The FFmpeg download is incomplete. Please retry.")
     if digest.hexdigest() != DOWNLOAD_SHA256:
-        raise ValueError("Die SHA-256-Prüfsumme des FFmpeg-Downloads stimmt nicht. Es wurde nichts installiert.")
+        raise ValueError("The FFmpeg download SHA-256 checksum does not match. Nothing was installed.")
 
 
 def unpack_archive(archive_path, staging, cancel):
@@ -106,13 +106,13 @@ def unpack_archive(archive_path, staging, cancel):
             matches = [item for item in archive.infolist()
                        if re.fullmatch(r"[^/]+/bin/" + re.escape(name), item.filename)]
             if len(matches) != 1:
-                raise ValueError("Das FFmpeg-Archiv enthält " + name + " nicht eindeutig.")
+                raise ValueError("The FFmpeg archive does not contain exactly one copy of " + name + ".")
             member = matches[0]
             if member.file_size < 2 or member.file_size > MAX_EXECUTABLE:
-                raise ValueError("Ungültige Dateigröße für " + name + ".")
+                raise ValueError("Invalid file size for " + name + ".")
             with archive.open(member) as source, (staging / name).open("wb") as output:
                 if source.read(2) != b"MZ":
-                    raise ValueError(name + " ist kein Windows-Programm.")
+                    raise ValueError(name + " is not a Windows program.")
                 output.write(b"MZ")
                 while True:
                     check_cancel(cancel)
@@ -156,11 +156,11 @@ def ensure_windows_tools(target, progress=lambda event: None, cancel=None):
     """Reuse a working bin pair offline; install a checked pair if it is missing."""
     target = Path(target).resolve()
     check_cancel(cancel)
-    progress({"phase": "check", "label": "FFmpeg und ffprobe prüfen", "value": 0})
+    progress({"phase": "check", "label": "Checking FFmpeg and ffprobe", "value": 0})
     try:
         result = validate_tools(target)
     except ValueError as error:
-        progress({"phase": "log", "text": "Werkzeuge werden eingerichtet: " + str(error)})
+        progress({"phase": "log", "text": "Setting up tools: " + str(error)})
     else:
         return dict(result, downloaded=False)
     check_cancel(cancel)
@@ -170,10 +170,10 @@ def ensure_windows_tools(target, progress=lambda event: None, cancel=None):
         staging = Path(directory)
         archive = staging / "ffmpeg.zip.part"
         download_archive(archive, progress, cancel)
-        progress({"phase": "extract", "label": "Prüfsumme korrekt · Werkzeuge entpacken", "value": 87})
+        progress({"phase": "extract", "label": "Checksum verified · extracting tools", "value": 87})
         unpack_archive(archive, staging, cancel)
         check_cancel(cancel)
-        progress({"phase": "validate", "label": "FFmpeg und benötigte Codecs prüfen", "value": 94})
+        progress({"phase": "validate", "label": "Checking FFmpeg and required codecs", "value": 94})
         result = validate_tools(staging)
         check_cancel(cancel)
         metadata = {"version": FFMPEG_VERSION, "url": DOWNLOAD_URL, "sha256": DOWNLOAD_SHA256,

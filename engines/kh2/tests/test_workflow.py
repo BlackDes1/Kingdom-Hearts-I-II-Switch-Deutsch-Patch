@@ -91,6 +91,19 @@ class KH2Tests(unittest.TestCase):
         self.assertFalse(report["hardware_tested"])
         self.assertFalse((self.root / "build/work").exists())
 
+    def test_japanese_voice_patch_uses_same_checked_import_and_reports_its_page(self):
+        source_path = self.root / "Japanese voices.kh2pcpatch"
+        with zipfile.ZipFile(source_path, "w", zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr(self.canonical, self.audio)
+        with tool.PatchSource(source_path, voice_language="ja") as source:
+            summary = source.summary()
+            destination = tool.build(self.romfs, source, self.root / "japanese-build")
+        report = json.loads((self.root / "japanese-build/build-result.json").read_text())
+        self.assertEqual(summary["voice_language"], "ja")
+        self.assertEqual(summary["intended_mod_page"], "https://www.nexusmods.com/kingdomhearts2finalmix/mods/16")
+        self.assertEqual(report["audio_files_verified"], 1)
+        self.assertFalse(report["movies_replaced"])
+
     def test_original_changes_require_review_and_are_not_silently_skipped(self):
         original = "kh2_sixth/original/obj/P_EX100.a.us"
         with zipfile.ZipFile(self.inner, "a") as archive:

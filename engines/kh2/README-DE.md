@@ -32,6 +32,8 @@ beide Dateien herunterladen:
 EPIC-Filmpakete werden ebenfalls erkannt. Die optionalen **Ps2 Untertitel**
 gehören nicht zu diesem Stimmen-/Filmimport.
 
+Für japanische Stimmen ist zusätzlich [Japanese voices von TieuLink](https://www.nexusmods.com/kingdomhearts2finalmix/mods/16?tab=files) verfügbar. In der gemeinsamen Desktop-Oberfläche **Japanisch** auswählen und die `.kh2pcpatch`-Datei angeben. Der japanische Stimmen-Mod enthält keine Filme; **German movies (STEAM)** bleibt eine separate Auswahl.
+
 Benötigt werden außerdem **Python 3.10 oder neuer**, dein vollständiger
 **KH2-ROMFS / Program 3** mit `kh2_*.hed`/`.pkg` und Originalfilmen unter `Switch`
 sowie **FFmpeg und ffprobe** für den Filmteil. FFmpeg muss für eine eventuelle
@@ -239,7 +241,8 @@ Ohne FFmpeg/ffprobe über PATH werden entsprechende Testklassen übersprungen.
 
 ## Quellen und Lizenz
 
-- [Gewünschter Mod von TieuLink](https://www.nexusmods.com/kingdomhearts2finalmix/mods/42)
+- [TieuLink: deutsche Stimmen und Filme](https://www.nexusmods.com/kingdomhearts2finalmix/mods/42)
+- [TieuLink: Japanese voices](https://www.nexusmods.com/kingdomhearts2finalmix/mods/16)
 - [KHPCPatchManager / OpenKH: Archivverarbeitung](https://github.com/AntonioDePau/KHPCPatchManager)
 - [OpenKh: SCD-Format](https://openkh.dev/kh2/file/type/scd.html)
 - [vgmstream: SCD-Formatreferenz](https://github.com/vgmstream/vgmstream/blob/master/src/meta/sqex_scd.c)

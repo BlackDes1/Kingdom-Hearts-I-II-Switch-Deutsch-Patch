@@ -30,7 +30,7 @@ def run_job(request, engine=None):
     root = clean_path(request["job_root"])
     output = root / "Berichte"
     game = GAMES[spec.game]
-    emit(type="progress", value=3, label="" + game["short"] + " · Eingaben und Werkzeuge prüfen")
+    emit(type="progress", value=3, label="" + game["short"] + " · Checking inputs and tools")
     if engine is None:
         sys.path.insert(0, str(RESOURCE_ROOT / "engines" / spec.game))
         engine = importlib.import_module(spec.game + "_switch")
@@ -51,7 +51,7 @@ def run_job(request, engine=None):
         else:
             if spec.needs_voices:
                 try:
-                    with engine.PatchSource(clean_path(spec.mod)) as source:
+                    with engine.PatchSource(clean_path(spec.mod), voice_language=spec.voice_language) as source:
                         report = engine.diagnose(romfs, source, output / "KH2-Switch-Diagnose.zip", game["id"])
                         warnings += [e["error"] for e in report.get("inspection", {}).get("errors", [])]
                 except Exception as error:
@@ -62,36 +62,40 @@ def run_job(request, engine=None):
                                         ffmpeg=tools["ffmpeg"], ffprobe=tools["ffprobe"], diagnose_only=True)
                 except Exception as error:
                     warnings.append(str(error))
-        print("Diagnose erstellt." + (" Hinweise: " + "; ".join(warnings) if warnings else ""), flush=True)
+        print("Diagnostics complete." + (" Notes: " + "; ".join(warnings) if warnings else ""), flush=True)
         return {"success": True, "diagnosis": True, "warnings": warnings, "game": spec.game,
                 "program_id": game["id"], "output": str(output)}
     if spec.game == "kh1":
-        engine.build(romfs, clean_path(spec.mod), output, game["id"])
+        engine.build(romfs, clean_path(spec.mod), output, game["id"],
+                     voice_language=spec.voice_language)
     elif spec.mode == "movies":
         engine.build_movies(romfs, clean_path(spec.movies), output, game["id"],
                             ffmpeg=tools["ffmpeg"], ffprobe=tools["ffprobe"])
     else:
-        with engine.PatchSource(clean_path(spec.mod)) as source:
+        with engine.PatchSource(clean_path(spec.mod), voice_language=spec.voice_language) as source:
             if spec.mode == "all":
                 engine.build_all(romfs, source, clean_path(spec.movies), output, game["id"],
                                  ffmpeg=tools["ffmpeg"], ffprobe=tools["ffprobe"])
             else:
                 engine.build(romfs, source, output, game["id"], ffmpeg=tools["ffmpeg"])
     if (root / "Abbrechen.flag").exists():
-        raise InterruptedError("Auftrag abgebrochen.")
+        raise InterruptedError("Job cancelled.")
     source_tree = output / "atmosphere"
     contents = source_tree / "contents"
     ids = sorted(p.name for p in contents.iterdir()) if contents.is_dir() else []
     if ids != [game["id"]] or not (contents / game["id"] / "romfs").is_dir():
-        raise ValueError("Der Patcher hat keine Ausgabe für die feste Program-ID erzeugt.")
+        raise ValueError("The patcher did not create output for the fixed Program ID.")
     report_file = output / ("movie-result.json" if spec.mode == "movies" else "build-result.json")
     if not report_file.is_file():
-        raise ValueError("Der Prüfbericht des Patchers fehlt; keine Ausgabe bereitgestellt.")
+        raise ValueError("The patcher report is missing; no output was published.")
     report = json.loads(report_file.read_text(encoding="utf-8"))
+    if spec.needs_voices:
+        report["voice_language"] = spec.voice_language
+        report_file.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     if (spec.game == "kh2" and spec.mode == "all" and
             not (report.get("voices_completed") and report.get("movies_completed"))):
-        raise ValueError("Stimmen und Filme sind noch nicht gemeinsam fertig geprüft.")
-    emit(type="progress", value=99, label="Geprüften atmosphere-Ordner bereitstellen")
+        raise ValueError("Voices and movies have not both passed verification.")
+    emit(type="progress", value=99, label="Publishing verified atmosphere folder")
     source_tree.rename(root / "atmosphere")
     return {"success": True, "diagnosis": False, "game": spec.game, "program_id": game["id"],
             "output": str(root / "atmosphere"), "engine": game["engine"], "app_version": VERSION}

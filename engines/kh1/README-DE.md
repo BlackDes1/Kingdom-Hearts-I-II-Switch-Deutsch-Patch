@@ -1,7 +1,9 @@
-# Kingdom Hearts I: Deutsche Stimmen auf Switch – v2
+# Kingdom Hearts I: Deutsche oder japanische Stimmen auf Switch – v2.1
 
-Dieses Paket baut den deutschen Stimmen-Mod von **Rikux3** in die Archive der
-**nativen Switch-1-Version von KINGDOM HEARTS -HD 1.5+2.5 ReMIX-** ein.
+Dieses Paket baut ausgewählte deutsche oder japanische Stimmen in die Archive der
+**nativen Switch-1-Version von KINGDOM HEARTS -HD 1.5+2.5 ReMIX-** ein. Deutsch
+verwendet Rikux3s Mod; Japanisch verwendet TieuLinks Patch **Japanese voices**
+([Nexus Mods](https://www.nexusmods.com/kingdomheartsfinalmix/mods/6)).
 Die bereitgestellte Switch-Diagnose wurde ausgewertet. Der Umbau ist mit sechs
 echten Archivproben und 27 SCD-Dateien geprüft; der vollständige Build auf deinem
 PC und der anschließende Test im Spiel stehen noch aus.
@@ -9,15 +11,17 @@ PC und der anschließende Test im Spiel stehen noch aus.
 ## Jetzt den Mod bauen
 
 1. Dieses ZIP vollständig in einen neuen, beschreibbaren Ordner entpacken.
-2. Den Rikux3-Mod als ZIP herunterladen:
-   [geprüfter Quellenstand](https://github.com/Rikux3/kh1fm-undub-ger-pc/archive/e17e035f10fe6d61954051fb21371c0452aefdb4.zip).
-   **Das Mod-ZIP bei der Dateiauswahl auswählen, nicht die Diagnose-ZIP.**
+2. Deutsch: Rikux3-Mod als ZIP herunterladen ([geprüfter Quellenstand](https://github.com/Rikux3/kh1fm-undub-ger-pc/archive/e17e035f10fe6d61954051fb21371c0452aefdb4.zip)).
+   Japanisch: im Nexus-Reiter **Files** den Download **Japanese voices** auswählen.
+   **Das Modarchiv bei der Dateiauswahl auswählen, nicht die Diagnose-ZIP.**
 3. **START.cmd** doppelklicken und **2 – Testmod bauen** wählen.
 4. Denselben KH1-ROMFS-Ordner wie bei der Diagnose auswählen.
 5. Die Program-ID und gegebenenfalls die Spielversion angeben. Die bekannte
    Sammlungs-ID `010090C022978000` wird automatisch auf **KH1 / Program 1**,
    also `010090C022978001`, umgesetzt.
-6. Das heruntergeladene Mod-ZIP und einen Ausgabeordner auswählen.
+6. Die Modquelle und einen Ausgabeordner auswählen. Für Japanisch wird die
+   `.kh1pcpatch`-Datei, eine ZIP mit dieser Patchdatei oder ein entpackter Ordner
+   angenommen; Deutsch verwendet das oben verlinkte Quellen-ZIP.
 7. Nach erfolgreicher Prüfung den erzeugten `atmosphere`-Ordner auf die SD-Karte
    kopieren. Der KH1-Mod liegt in:
    `atmosphere/contents/010090C022978001/romfs/`.
@@ -100,8 +104,11 @@ Program 1**. Verwende den ROMFS-Stand, mit dem du tatsächlich spielen wirst.
 ## Umfang
 
 **Intro und Abspann bleiben auf Englisch**, wie im verlinkten Originalmod.
-Das Paket enthält selbst keine Spielarchive oder Sprachaufnahmen. Es baut den
-Mod aus deinem eigenen Dump und dem heruntergeladenen Rikux3-Mod.
+Das Paket enthält selbst keine Spielarchive oder Sprachaufnahmen. Japanische
+SCD-Dateien werden aus dem Patcharchiv gelesen, gegen die Switch-Dateinamen
+geprüft und beim Build einzeln mit SHA-256 verifiziert. Das japanische Originalmod
+wurde hier nicht als Datei bereitgestellt; die neuen Importtests verwenden
+synthetische Archive. Filme werden nicht verändert.
 
 ## Fehler und Diagnose
 
@@ -118,6 +125,7 @@ Fehler mit dem leeren Eintrag in `kh1_fifth` ist in v2 korrigiert.
 
 ```powershell
 py -3 kh1_switch.py --build --romfs "D:\KH1\romfs" --mod "D:\Downloads\kh1fm-undub-ger-pc-main.zip" --output "D:\KH1-German-Switch-v2" --title-id 010090C022978001
+py -3 kh1_switch.py --build --voice-language ja --romfs "D:\KH1\romfs" --mod "D:\Downloads\Japanese voices.kh1pcpatch" --output "D:\KH1-Japanese-Switch-v2" --title-id 010090C022978001
 py -3 kh1_switch.py --diagnose --romfs "D:\KH1\romfs" --output "D:\KH1-Diagnose-v2.zip" --title-id 010090C022978001
 ```
 
@@ -145,6 +153,7 @@ Details zu den echten Proben stehen in `validation-native.json`.
 ## Quellen
 
 - [Rikux3: deutscher Stimmen-Mod](https://github.com/Rikux3/kh1fm-undub-ger-pc)
+- [TieuLink: Japanese voices](https://www.nexusmods.com/kingdomheartsfinalmix/mods/6)
 - [AntonioDePau: dokumentierte Archivverarbeitung](https://github.com/AntonioDePau/KHPCPatchManager)
 - [Fotia13: französischer Mod mit Switch-Anleitung und KH1-Program-ID](https://www.nexusmods.com/kingdomheartsfinalmix/mods/123)
 

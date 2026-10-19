@@ -8,13 +8,16 @@ from __future__ import annotations
 
 import argparse
 import collections
+from contextlib import contextmanager
 import datetime as dt
 import hashlib
 import json
 import re
 import shutil
+import stat
 import struct
 import sys
+import tempfile
 import traceback
 import zipfile
 from pathlib import Path, PurePosixPath
@@ -29,6 +32,7 @@ PKG_HEADER = struct.Struct("<iiii")
 HD_ROW = struct.Struct("<32siiii")
 SAMPLE_LIMIT = 2 * 1024 * 1024
 PACKAGES = ("kh1_first", "kh1_third", "kh1_fourth", "kh1_fifth")
+JAPANESE_SOURCE_URL = "https://www.nexusmods.com/kingdomheartsfinalmix/mods/6"
 
 
 def manifest():
@@ -56,6 +60,144 @@ def sha256_file(path):
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def japanese_member_path(name):
+    """Return a supported KH1 remastered-SCD path from a PC patch member."""
+    normalized = name.replace("\\", "/")
+    parts = PurePosixPath(normalized).parts
+    package_positions = [i for i, part in enumerate(parts) if part.lower() in PACKAGES]
+    if not package_positions:
+        return None
+    if len(package_positions) != 1 or normalized.startswith("/") or any(
+            part in (".", "..") or ":" in part or "\0" in part for part in parts):
+        raise ValueError("Unsicherer oder mehrdeutiger Pfad im japanischen KH1-Modarchiv: " + name)
+    relative = parts[package_positions[0]:]
+    if len(relative) < 4 or relative[1].lower() != "remastered" or not relative[-1].lower().endswith(".scd"):
+        return None
+    return "/".join((relative[0].lower(), "remastered", *relative[2:]))
+
+
+def _archive_entries(archive):
+    names = [item.filename for item in archive.infolist() if not item.is_dir()]
+    if len(names) != len(set(names)):
+        raise ValueError("Das japanische Patcharchiv enthält doppelte ZIP-Dateien.")
+    result = []
+    seen = set()
+    for info in archive.infolist():
+        if info.is_dir():
+            continue
+        canonical = japanese_member_path(info.filename)
+        if not canonical:
+            continue
+        if stat.S_ISLNK(info.external_attr >> 16):
+            raise ValueError("Verknüpfungen werden aus dem japanischen Patcharchiv nicht importiert.")
+        if canonical in seen:
+            raise ValueError("Doppelter japanischer Modpfad: " + canonical)
+        seen.add(canonical)
+        result.append((canonical, info))
+    return result
+
+
+@contextmanager
+def japanese_source_entries(source):
+    """Open direct .kh1pcpatch files, Nexus wrapper ZIPs, or extracted folders."""
+    source = Path(source)
+    if source.is_dir():
+        entries = []
+        for path in source.rglob("*"):
+            if not path.is_file():
+                continue
+            canonical = japanese_member_path(path.relative_to(source).as_posix())
+            if not canonical:
+                continue
+            if path.is_symlink():
+                raise ValueError("Verknüpfungen bitte vor dem Import auflösen: " + canonical)
+            entries.append((canonical, path))
+        if entries:
+            if len({name for name, _ in entries}) != len(entries):
+                raise ValueError("Doppelter japanischer Modpfad im entpackten Ordner.")
+            yield None, entries
+            return
+        nested = list(source.rglob("*.kh1pcpatch"))
+        if len(nested) == 1:
+            with japanese_source_entries(nested[0]) as opened:
+                yield opened
+            return
+        raise ValueError("Keine KH1-SCD-Dateien gefunden. Benötigt wird ‚Japanese voices‘ (.kh1pcpatch).")
+    if not source.is_file() or not zipfile.is_zipfile(source):
+        raise ValueError("Bitte die KH1-Mod-ZIP, .kh1pcpatch oder einen entpackten Modordner auswählen.")
+    with zipfile.ZipFile(source) as archive:
+        entries = _archive_entries(archive)
+        if entries:
+            yield archive, entries
+            return
+        nested = [i for i in archive.infolist() if not i.is_dir() and i.filename.lower().endswith(".kh1pcpatch")]
+        if len(nested) != 1:
+            raise ValueError("Keine KH1-SCD-Dateien gefunden. Benötigt wird ‚Japanese voices‘ (.kh1pcpatch).")
+        with tempfile.TemporaryDirectory(prefix="kh1-patch-") as temporary:
+            if shutil.disk_usage(temporary).free < nested[0].file_size + 64 * 1024 * 1024:
+                raise ValueError("Zu wenig temporärer Platz zum Öffnen der Nexus-ZIP.")
+            target = Path(temporary) / "source.kh1pcpatch"
+            with archive.open(nested[0]) as stream, target.open("wb") as output:
+                shutil.copyfileobj(stream, output, 1024 * 1024)
+            with zipfile.ZipFile(target) as inner:
+                entries = _archive_entries(inner)
+                if not entries:
+                    raise ValueError("Die .kh1pcpatch-Datei enthält keine unterstützten KH1-SCDs.")
+                yield inner, entries
+
+
+def japanese_manifest(source):
+    """Hash the Japanese SCD entries and make the same plan used by the verifier."""
+    files = []
+    with japanese_source_entries(source) as (archive, entries):
+        for canonical, handle in entries:
+            digest = hashlib.sha256()
+            opener = archive.open(handle) if archive else handle.open("rb")
+            with opener as stream:
+                signature = stream.read(8)
+                if signature != b"SEDBSSCF":
+                    raise ValueError("Keine gültige KH1-SCD-Audiodatei: " + canonical)
+                digest.update(signature)
+                size = len(signature)
+                for block in iter(lambda: stream.read(1024 * 1024), b""):
+                    digest.update(block)
+                    size += len(block)
+            if size == 0:
+                raise ValueError("Leere SCD-Datei im japanischen Mod: " + canonical)
+            files.append({"path": canonical, "size": size, "sha256": digest.hexdigest()})
+    if not files:
+        raise ValueError("Der japanische Patch enthält keine unterstützten SCD-Audiodateien.")
+    return {"repository": "TieuLink / Nexus Mods", "commit": "nexus-mod-6",
+            "language": "ja", "mod_page": JAPANESE_SOURCE_URL, "files": files}
+
+
+def stage_japanese_mod(source, destination, data):
+    destination.mkdir(parents=True, exist_ok=True)
+    expected = {item["path"]: item for item in data["files"]}
+    copied = set()
+    with japanese_source_entries(source) as (archive, entries):
+        for canonical, handle in entries:
+            item = expected.get(canonical)
+            if item is None:
+                raise ValueError("Die japanische Modquelle hat sich seit der Prüfung geändert: " + canonical)
+            digest = hashlib.sha256()
+            size = 0
+            target = destination / canonical
+            target.parent.mkdir(parents=True, exist_ok=True)
+            opener = archive.open(handle) if archive else handle.open("rb")
+            with opener as stream, target.open("wb") as output:
+                for block in iter(lambda: stream.read(1024 * 1024), b""):
+                    digest.update(block)
+                    size += len(block)
+                    output.write(block)
+            if size != item["size"] or digest.hexdigest() != item["sha256"]:
+                raise ValueError("Japanische Audiodatei änderte sich während des Kopierens: " + canonical)
+            copied.add(canonical)
+    if copied != set(expected):
+        raise ValueError("Die japanische Modquelle hat sich seit der Prüfung geändert; bitte erneut auswählen.")
+    return destination
 
 
 def read_hed(path, pkg_size):
@@ -229,6 +371,8 @@ def diagnose(root, target, title_id="", version="", include_samples=True):
 
 def stage_mod(source, destination, data):
     """Extract only known files, verifying all hashes; never unpack arbitrary ZIP paths."""
+    if data.get("language") == "ja":
+        return stage_japanese_mod(source, destination, data)
     destination.mkdir(parents=True, exist_ok=True)
     if source.is_dir():
         roots = [source] if (source / "kh1_first").is_dir() else [
@@ -319,7 +463,7 @@ def rewrite_asset(source, destination, entry, staged_asset, audio):
         struct.pack_into("<ii", table, row_offset + 40, size, packed_size)
         logical_offset += size
     if replacements != len(audio):
-        raise ValueError("Nicht alle deutschen Audionamen sind im Ziel-Asset vorhanden.")
+        raise ValueError("Nicht alle ausgewählten Audionamen sind im Ziel-Asset vorhanden.")
     destination.write(table)
     # Preserve the compressed/encrypted original asset and its alignment bytes.
     original_end = header["headers"][0]["physical_offset"]
@@ -475,18 +619,24 @@ def resolve_title_id(title_id):
     return DEFAULT_TITLE_ID if value == COLLECTION_TITLE_ID else value
 
 
-def build(root, mod, output, title_id, version=""):
+def build(root, mod, output, title_id, version="", voice_language="de"):
     resolved_title_id = resolve_title_id(title_id)
     if resolved_title_id != title_id.upper():
         print(f"KH1-Program-ID: {resolved_title_id} (Sammlung: {title_id.upper()})", flush=True)
     if output.exists():
         raise ValueError("Bitte einen neuen Ausgabeordner wählen; vorhandene Builds werden nicht überschrieben.")
-    data = manifest()
+    if voice_language == "de":
+        data = manifest()
+    elif voice_language == "ja":
+        data = japanese_manifest(mod)
+    else:
+        raise ValueError("Bitte Deutsch oder Japanisch als Stimmenquelle auswählen.")
     expected = groups(data)
     originals = find_archives(root)
     before = inspect_archives(originals, expected)
     if not before["compatible_names"]:
-        raise ValueError(f"Nur {before['matched_scd']}/{before['expected_scd']} Audionamen passen. "
+        raise ValueError(f"Nur {before['matched_scd']}/{before['expected_scd']} Audionamen der "
+                         f"{'japanischen' if voice_language == 'ja' else 'deutschen'} Quelle passen. "
                          "Bitte zuerst die Diagnose erstellen und hier hochladen.")
     existing_parent = output.parent
     while not existing_parent.exists():
@@ -518,11 +668,13 @@ def build(root, mod, output, title_id, version=""):
             shutil.move(str(path), str(destination / path.name))
     shutil.rmtree(work)
     result = {"source_repository": data["repository"], "source_commit": data["commit"],
+              "voice_language": voice_language, "source_mod_page": data.get("mod_page"),
               "title_id_user_supplied": title_id.upper(), "kh1_program_id": resolved_title_id,
               "version_user_supplied": version,
               "audio_replacements": after["matched_scd"], "fmv_replaced": False,
               "hardware_tested": False, "status": "Archive geprüft; Switch-Praxistest steht aus",
-              "checks": ["Quellen-SHA256", "Alle 2326 Namen", "Alle 2326 Ersetzungen",
+              "checks": ["Quellen-SHA256", f"Alle {after['expected_scd']} ausgewählten Namen",
+                         f"Alle {after['matched_scd']} ausgewählten Ersetzungen",
                          "SHA256 aller eingebauten Audiodateien", "Audio-Dateigrößen",
                          "Original-Asset-Hashes erhalten", "Originaldaten der betroffenen Assets erhalten",
                          "Andere Remastered-Ressourcen der betroffenen Assets erhalten",
@@ -549,9 +701,9 @@ def ask_path(prompt, folder=True):
 
 
 def interactive():
-    print("KH1 Switch - Deutsche Stimmen | Baupaket v2\n")
+    print("KH1 Switch - Deutsche oder japanische Stimmen | Baupaket v2\n")
     print("1 = Kleine Diagnose erstellen (für die erste Prüfung empfohlen)")
-    print("2 = Atmosphère-Testmod aus deinem ROMFS und dem Rikux3-Mod bauen\n")
+    print("2 = Atmosphère-Testmod aus deinem ROMFS und einem Stimmen-Mod bauen\n")
     choice = input("Auswahl [1]: ").strip() or "1"
     root = ask_path("Extrahierter ROMFS von KH1 / Program 1")
     title_id = input(f"Program-ID aus DBI [{DEFAULT_TITLE_ID}]: ").strip() or DEFAULT_TITLE_ID
@@ -565,10 +717,14 @@ def interactive():
         print("Passende Audionamen:", inspection.get("matched_scd", "unbekannt"), "/ 2326")
         print("Lade diese Diagnose-ZIP zur Prüfung hier hoch.")
     elif choice == "2":
-        mod = ask_path("Rikux3-Mod: heruntergeladene ZIP oder .kh1pcpatch", folder=False)
+        voice_language = input("Stimmenquelle [1=Deutsch Rikux3, 2=Japanisch TieuLink] [1]: ").strip() or "1"
+        if voice_language not in ("1", "2"):
+            raise ValueError("Bitte 1 für Deutsch oder 2 für Japanisch auswählen.")
+        voice_language = "ja" if voice_language == "2" else "de"
+        mod = ask_path("Stimmen-Mod: ZIP, .kh1pcpatch oder entpackter Ordner", folder=False)
         parent = ask_path("Ausgabeordner mit ausreichend freiem Platz")
         output = parent / ("KH1-Switch-Build-" + stamp)
-        destination = build(root, mod, output, title_id, version)
+        destination = build(root, mod, output, title_id, version, voice_language)
         print("\nTestmod gebaut:", destination)
         print("Den erzeugten atmosphere-Ordner auf die SD-Karte kopieren.")
         print("Die Archive sind geprüft. Ein Test auf der Switch steht noch aus.")
@@ -586,6 +742,7 @@ def main():
     parser.add_argument("--mod", type=Path)
     parser.add_argument("--title-id", default="")
     parser.add_argument("--version", default="")
+    parser.add_argument("--voice-language", choices=("de", "ja"), default="de")
     parser.add_argument("--no-samples", action="store_true")
     args = parser.parse_args()
     try:
@@ -601,7 +758,8 @@ def main():
             else:
                 if not args.mod or not args.title_id:
                     parser.error("Zum Bauen sind --mod und --title-id erforderlich.")
-                print(build(root, args.mod.resolve(), output, args.title_id, args.version))
+                print(build(root, args.mod.resolve(), output, args.title_id, args.version,
+                            args.voice_language))
         return 0
     except KeyboardInterrupt:
         print("\nAbgebrochen.")

@@ -109,6 +109,54 @@ class WorkflowTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Quellenstand"):
             tool.stage_mod(source, self.root / "bad-stage", bad)
 
+    def japanese_patch(self, path, wrapper=False):
+        patch_bytes = io.BytesIO()
+        with zipfile.ZipFile(patch_bytes, "w", zipfile.ZIP_DEFLATED) as archive:
+            for package in tool.PACKAGES:
+                archive.writestr(package + "/remastered/voice/sample.vsb/a.win32.scd", self.audio)
+            archive.writestr("../../ignored.txt", b"not imported")
+        if wrapper:
+            with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
+                archive.writestr("Japanese voices.kh1pcpatch", patch_bytes.getvalue())
+        else:
+            path.write_bytes(patch_bytes.getvalue())
+
+    def test_japanese_kh1pcpatch_builds_and_reports_language(self):
+        source = self.root / "Japanese voices.kh1pcpatch"
+        self.japanese_patch(source)
+        data = tool.japanese_manifest(source)
+        self.assertEqual(len(data["files"]), 4)
+        self.assertEqual(tool.groups(data)["kh1_first"]["voice/sample.vsb"]["a.win32.scd"]["size"], len(self.audio))
+        output = self.root / "japanese-build"
+        destination = tool.build(self.romfs, source, output, tool.DEFAULT_TITLE_ID, voice_language="ja")
+        self.assertEqual(len(list(destination.iterdir())), 8)
+        report = json.loads((output / "build-result.json").read_text())
+        self.assertEqual(report["voice_language"], "ja")
+        self.assertEqual(report["audio_replacements"], 4)
+        self.assertEqual(report["source_mod_page"], tool.JAPANESE_SOURCE_URL)
+
+    def test_japanese_wrapper_zip_and_extracted_folder_are_supported(self):
+        wrapper = self.root / "download.zip"
+        self.japanese_patch(wrapper, wrapper=True)
+        self.assertEqual(len(tool.japanese_manifest(wrapper)["files"]), 4)
+        extracted = self.root / "extracted"
+        extracted.mkdir()
+        self.japanese_patch(extracted / "Japanese voices.kh1pcpatch")
+        self.assertEqual(len(tool.japanese_manifest(extracted)["files"]), 4)
+
+    def test_japanese_patch_rejects_duplicate_and_unsafe_paths(self):
+        source = self.root / "bad.kh1pcpatch"
+        with zipfile.ZipFile(source, "w") as archive:
+            canonical = "kh1_first/remastered/voice/sample.vsb/a.win32.scd"
+            archive.writestr(canonical, self.audio)
+            archive.writestr("wrapper/" + canonical, self.audio)
+        with self.assertRaisesRegex(ValueError, "Doppelter japanischer Modpfad"):
+            tool.japanese_manifest(source)
+        with zipfile.ZipFile(source, "w") as archive:
+            archive.writestr("kh1_first/remastered/../../outside.scd", self.audio)
+        with self.assertRaisesRegex(ValueError, "Unsicherer"):
+            tool.japanese_manifest(source)
+
     def test_compressed_and_encrypted_audio_validation(self):
         originals = tool.find_archives(self.romfs)
         before = tool.inspect_archives(originals, self.expected)
